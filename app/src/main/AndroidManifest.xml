@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Melif"
         tools:targetApi="31">
         <activity
-            android:name=".MainBaseActivity"
+            android:name=".navigation.MainBaseActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
