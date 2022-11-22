@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -42,6 +43,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.2'
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.2'
+    implementation 'com.google.firebase:firebase-auth-ktx:21.1.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
@@ -72,4 +74,16 @@ dependencies {
     //chucker
     debugImplementation "com.github.chuckerteam.chucker:library:3.5.2"
     releaseImplementation "com.github.chuckerteam.chucker:library-no-op:3.5.2"
+
+    //firebase
+    implementation platform('com.google.firebase:firebase-bom:31.0.3')
+    implementation 'com.google.firebase:firebase-database-ktx'
+    implementation 'com.google.firebase:firebase-storage-ktx'
+    implementation 'com.google.firebase:firebase-auth-ktx'
+
+    // Firebase UI
+    implementation 'com.firebaseui:firebase-ui-auth:8.0.2'
+    implementation 'com.firebaseui:firebase-ui-database:8.0.2'
+
+    implementation 'com.google.android.gms:play-services-auth:20.3.0'
 }
