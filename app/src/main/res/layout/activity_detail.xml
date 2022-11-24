@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/dark_melif">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        app:layout_constraintBottom_toTopOf="@id/tv_overview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapseLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="@color/dark_melif"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/dark_melif">
+
+                <ImageView
+                    android:id="@+id/iv_header_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:alpha="0.7"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_header_detail"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_poster_detail"
+                    android:layout_width="190dp"
+                    android:layout_height="300dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="3dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_genre_detail"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.1">
+
+                    <ImageView
+                        android:id="@+id/img_poster_detail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleY="1.1"
+                        android:src="@drawable/ic_poster_detail" />
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/tv_title_detail"
+                    style="@style/TextTitle.BoldSmall"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    tools:text="Black Panther: Wakanda Forever (2022)"
+                    android:textSize="22sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cv_poster_detail"
+                    app:layout_constraintTop_toBottomOf="@id/iv_header_detail" />
+
+                <TextView
+                    android:id="@+id/tv_rate_detail"
+                    style="@style/TextDesc.Regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:drawablePadding="10dp"
+                    android:gravity="center"
+                    tools:text="8.1"
+                    app:drawableStartCompat="@drawable/ic_star_detail"
+                    app:layout_constraintStart_toStartOf="@id/tv_title_detail"
+                    app:layout_constraintTop_toBottomOf="@id/tv_title_detail" />
+
+                <TextView
+                    android:id="@+id/tv_duration_detail"
+                    style="@style/TextDesc.Regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:drawablePadding="10dp"
+                    android:gravity="center"
+                    tools:text="2h 42m"
+                    app:drawableStartCompat="@drawable/ic_time_detail"
+                    app:layout_constraintBottom_toTopOf="@id/tv_release_detail"
+                    app:layout_constraintStart_toStartOf="@id/tv_title_detail"
+                    app:layout_constraintTop_toBottomOf="@id/tv_rate_detail" />
+
+                <TextView
+                    android:id="@+id/tv_release_detail"
+                    style="@style/TextDesc.Regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:drawablePadding="10dp"
+                    android:gravity="center"
+                    tools:text="11/11/2022 (US)"
+                    app:drawableStartCompat="@drawable/ic_date_detail"
+                    app:layout_constraintStart_toStartOf="@id/tv_title_detail"
+                    app:layout_constraintTop_toBottomOf="@id/tv_duration_detail" />
+
+                <TextView
+                    android:id="@+id/tv_genre_detail"
+                    style="@style/TextDesc.Regular"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    tools:text="Action, Adventure, Science Fiction"
+                    app:layout_constraintStart_toStartOf="@id/tv_title_detail"
+                    app:layout_constraintTop_toBottomOf="@id/tv_release_detail" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@null"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/Theme.AppCompat.Light.NoActionBar"
+                app:navigationIcon="@drawable/ic_back" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="invisible" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_overview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="50dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@string/text_overview"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_desc_detail"
+                style="@style/TextDesc.Reg"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="40dp"
+                android:justificationMode="inter_word"
+                android:text="@string/text_overview_dummy"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/tv_overview"
+                app:layout_constraintTop_toBottomOf="@id/tv_overview" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
