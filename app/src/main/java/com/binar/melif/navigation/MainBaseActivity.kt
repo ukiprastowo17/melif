@@ -16,7 +16,7 @@ class MainBaseActivity : BaseActivity<ActivityMainBaseBinding>(ActivityMainBaseB
 
         val firstFragment = FirstFragment()
         val secondFragment = SecondFragment()
-//        val chatActivity = Intent(this@MainBaseActivity, ChatActivity::class.java)
+//        val threadActivity = Intent(this@MainBaseActivity, ThreadActivity::class.java)
 
         setCurrentFragment(firstFragment)
 
@@ -24,7 +24,7 @@ class MainBaseActivity : BaseActivity<ActivityMainBaseBinding>(ActivityMainBaseB
             when(it.itemId){
                 R.id.movie -> setCurrentFragment(firstFragment)
                 R.id.tvshow -> setCurrentFragment(secondFragment)
-//                R.id.chat -> startActivity(chatActivity)
+//                R.id.chat -> startActivity(threadActivity)
             }
             true
         }
