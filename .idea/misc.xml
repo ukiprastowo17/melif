@@ -7,7 +7,7 @@
         <entry key="..\:/Users/muham/AndroidStudioProjects/melif/app/src/main/res/drawable/ic_top_menu.xml" value="0.1675" />
         <entry key="..\:/Users/muham/AndroidStudioProjects/melif/app/src/main/res/drawable/rounded_corner.xml" value="0.1555" />
         <entry key="..\:/Users/muham/AndroidStudioProjects/melif/app/src/main/res/layout/activity_main.xml" value="0.2740036231884058" />
-        <entry key="..\:/Users/muham/AndroidStudioProjects/melif/app/src/main/res/layout/activity_main_base.xml" value="0.2" />
+        <entry key="..\:/Users/muham/AndroidStudioProjects/melif/app/src/main/res/layout/activity_main_base.xml" value="0.264" />
         <entry key="..\:/Users/muham/AndroidStudioProjects/melif/app/src/main/res/layout/activity_sample_about.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/muham/AndroidStudioProjects/melif/app/src/main/res/layout/content_main.xml" value="0.176" />
         <entry key="..\:/Users/muham/AndroidStudioProjects/melif/app/src/main/res/layout/fragment_first.xml" value="0.2740036231884058" />
@@ -25,5 +25,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.1" />
+      </ProjectState>
+    </option>
   </component>
 </project>

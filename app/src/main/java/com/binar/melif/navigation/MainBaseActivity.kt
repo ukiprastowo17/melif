@@ -22,6 +22,7 @@ class MainBaseActivity : BaseActivity<ActivityMainBaseBinding>(ActivityMainBaseB
         setSupportActionBar(binding.toolbarMenu)
         supportActionBar?.apply {
             setDisplayShowCustomEnabled(true)
+            setDisplayShowTitleEnabled(false)
         }
 
         val firstFragment = FirstFragment()
