@@ -3,7 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.binar.melif">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -14,24 +17,39 @@
         android:theme="@style/Theme.Melif"
         tools:targetApi="31">
         <activity
-            android:name=".detail.DetailActivity"
+            android:name=".presentation.ui.detail.DetailActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".presentation.ui.detail.moviedetail.MovieDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ui.detail.tvshowdetail.TvShowDetailActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".presentation.ui.main.MainActivity"
             android:exported="false"
             android:label="@string/app_name"
-            android:theme="@style/Theme.Melif.NoActionBar">
-
-        </activity>
+            android:theme="@style/Theme.Melif.NoActionBar"/>
     </application>
 
 </manifest>

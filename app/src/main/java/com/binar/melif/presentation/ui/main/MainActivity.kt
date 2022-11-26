@@ -1,4 +1,4 @@
-package com.binar.melif
+package com.binar.melif.presentation.ui.main
 
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
@@ -9,6 +9,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import com.binar.melif.R
 import com.binar.melif.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
