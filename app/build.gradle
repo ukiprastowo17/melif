@@ -44,7 +44,7 @@ android {
         jvmTarget = '1.8'
     }
     buildFeatures {
-        viewBinding true
+        viewBinding = true
     }
 }
 
@@ -104,4 +104,10 @@ dependencies {
     implementation 'com.firebaseui:firebase-ui-database:8.0.2'
 
     implementation 'com.google.android.gms:play-services-auth:20.3.0'
-}
+
+    def nav_version = "2.5.3"
+    // Navigation Jetpack
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+ }
