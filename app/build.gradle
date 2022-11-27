@@ -26,6 +26,17 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    flavorDimensions "version"
+    productFlavors {
+        production {
+            dimension = 'version'
+            buildConfigField("String", "BASE_URL_MELIF", "\"https://api.themoviedb.org\"")
+            buildConfigField("String", "FIREBASE_WEB_CLIENT_ID", "\"974071425044-02ca33gdhj0eq6b46gv5qgqubhek4mov.apps.googleusercontent.com\"")
+        }
+    }
+
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8

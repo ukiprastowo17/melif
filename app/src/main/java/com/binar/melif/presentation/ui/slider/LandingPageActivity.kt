@@ -62,12 +62,7 @@ class LandingPageActivity : AppCompatActivity() {
         }
     }
 
-//    private fun navigateToMenuFragment(){
-//        ServiceLocator.providePreferenceDataSource(this@LandingPageActivity).setSkipIntro(true)
-//        val i = Intent(this@LandingPageActivity, HomeActivity::class.java)
-//        startActivity(i)
-//        finish()
-//    }
+
 
     private fun initFragmentViewPager() {
         initAdapter()
@@ -82,6 +77,15 @@ class LandingPageActivity : AppCompatActivity() {
                         "Easy \nTo Use",
                         "Membuat grup menjadi lebih mudah \nhanya dari ponsel Anda.",
                         R.drawable.lp01
+                    )
+                )
+            )
+            addFragment(
+                SliderFragment2.newInstance(
+                    SliderData(
+                        "Fast & \nBest Solution",
+                        "Sebagai sebuah solusi yang cepat dan tepat. Anda juga bisa memberikan nama grup.",
+                        R.drawable.lp02
                     )
                 )
             )

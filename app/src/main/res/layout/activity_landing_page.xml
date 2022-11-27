@@ -55,7 +55,7 @@
             android:id="@+id/dots_indicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:dotsColor="@color/color_master"
+            app:dotsColor="@color/grey"
             app:dotsCornerRadius="20dp"
             app:dotsSize="25dp"
             app:dotsSpacing="4dp"
@@ -65,7 +65,7 @@
             app:layout_constraintRight_toLeftOf="@id/tv_next"
             app:layout_constraintTop_toTopOf="parent"
             app:progressMode="true"
-            app:selectedDotColor="@color/grey" />
+            app:selectedDotColor="@color/color_master" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

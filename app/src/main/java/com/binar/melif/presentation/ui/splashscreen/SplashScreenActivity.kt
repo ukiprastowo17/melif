@@ -35,17 +35,17 @@ class SplashScreenActivity : AppCompatActivity() {
         timer = object : CountDownTimer(3000, 1000) {
             override fun onTick(millisUntilFinished: Long) {}
             override fun onFinish() {
-                if ( ServiceLocator.providePreferenceDataSource(this@SplashScreenActivity).isSkipIntro()){
+//                if ( ServiceLocator.providePreferenceDataSource(this@SplashScreenActivity).isSkipIntro()){
 //                    val intent = Intent(this@SplashScreenActivity, HomeActivity::class.java)
 //                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
 //                    startActivity(intent)
 //                    finish()
-                }else{
+//                }else{
                     val intent = Intent(this@SplashScreenActivity, LandingPageActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(intent)
                     finish()
-                }
+//                }
 
             }
         }
