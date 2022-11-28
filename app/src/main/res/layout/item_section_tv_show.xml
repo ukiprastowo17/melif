@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/dark_melif">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_section_layout"
@@ -20,7 +21,7 @@
             android:alpha="0.8"
             android:textSize="18sp"
             android:textStyle="bold"
-            style="@style/TextAppearance.MaterialComponents.Headline6"
+            style="@style/TextTitle.BoldWhite"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Trending Now" />

@@ -31,8 +31,10 @@ android {
     productFlavors {
         production {
             dimension = 'version'
-            buildConfigField("String", "BASE_URL_MELIF", "\"https://api.themoviedb.org\"")
+            buildConfigField("String", "BASE_URL_MELIF", "\"https://api.themoviedb.org/3/\"")
             buildConfigField("String", "FIREBASE_WEB_CLIENT_ID", "\"974071425044-02ca33gdhj0eq6b46gv5qgqubhek4mov.apps.googleusercontent.com\"")
+            buildConfigField 'String', 'API_KEY', '"d5524f7d769b5bb3c30b5abbf9706aa3"'
+            buildConfigField 'String', 'BASE_POSTER_IMG_URL', '"https://image.tmdb.org/t/p/w500"'
         }
     }
 

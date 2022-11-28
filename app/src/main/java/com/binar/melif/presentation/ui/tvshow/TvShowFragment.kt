@@ -1,5 +1,7 @@
 package com.binar.melif.presentation.ui.tvshow
 
+import android.content.ContentValues.TAG
+import android.util.Log
 import androidx.core.view.isVisible
 import com.binar.melif.R
 import com.binar.melif.base.BaseViewModelFragment
@@ -10,16 +12,19 @@ import com.binar.melif.uimodel.TvShowItem
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class TvShowFragment : BaseViewModelFragment<FragmentTvShowBinding, TvShowViewModel>(FragmentTvShowBinding::inflate) {
+class TvShowFragment :
+    BaseViewModelFragment<FragmentTvShowBinding, TvShowViewModel>
+        (FragmentTvShowBinding::inflate) {
 
     override val viewModel: TvShowViewModel by viewModel()
 
-    //field injection
-    private val adapter : TvShowAdapter by inject()
-
+    private val adapter: TvShowAdapter by lazy {
+        TvShowAdapter()
+    }
 
     override fun initView() {
         super.initView()
+        activity?.title= getString(R.string.text_tvshow_list)
         binding.rvHome.adapter = adapter
         viewModel.getTvShow()
     }
@@ -28,7 +33,10 @@ class TvShowFragment : BaseViewModelFragment<FragmentTvShowBinding, TvShowViewMo
         super.observeData()
         viewModel.tvShowResult.observe(this) {
             when (it) {
-                is Resource.Empty -> showEmptyData()
+                is Resource.Empty -> {
+                    showEmptyData()
+                }
+
                 is Resource.Error -> {
                     showError()
                     setErrorMessage(it.exception?.message.orEmpty())

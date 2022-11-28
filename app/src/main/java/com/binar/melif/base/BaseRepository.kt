@@ -1,6 +1,6 @@
 package com.binar.melif.base
 
-
+import android.util.Log
 import com.binar.melif.base.exception.ApiErrorException
 import com.binar.melif.base.exception.NoInternetConnectionException
 import com.binar.melif.base.exception.UnexpectedApiErrorException

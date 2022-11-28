@@ -56,7 +56,7 @@ object AppModules {
 
     private val viewModels = module {
         viewModel { TvShowViewModel(get()) }
-        viewModel { params -> WebDetailViewModel(params.get()) }
+
     }
 
     private val adapter = module {

@@ -5,16 +5,19 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import coil.load
+import com.binar.melif.BuildConfig
 import com.binar.melif.databinding.ItemHeaderTvShowBinding
 import com.binar.melif.databinding.ItemSectionTvShowBinding
 import com.binar.melif.uimodel.TV_SHOW_TYPE_HEADER
 import com.binar.melif.uimodel.TvShowItem
 
-class TvShowAdapter(var listener: ((TvShowItem) -> Unit)? = null) : RecyclerView.Adapter<ViewHolder>() {
+
+class TvShowAdapter(var listener: ((TvShowItem) -> Unit)? = null)
+    : RecyclerView.Adapter<ViewHolder>() {
 
     val data = mutableListOf<TvShowItem>()
 
-    fun setItems(newData:List<TvShowItem>){
+    fun setItems(newData: List<TvShowItem>) {
         data.clear()
         data.addAll(newData)
         notifyDataSetChanged()
@@ -38,6 +41,7 @@ class TvShowAdapter(var listener: ((TvShowItem) -> Unit)? = null) : RecyclerView
                 )
             )
         }
+
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -52,21 +56,25 @@ class TvShowAdapter(var listener: ((TvShowItem) -> Unit)? = null) : RecyclerView
     override fun getItemViewType(position: Int): Int {
         return data[position].type
     }
-
 }
 
 
-class HomeHeaderItemViewHolder(private val binding: ItemHeaderTvShowBinding) : ViewHolder(binding.root) {
+class HomeHeaderItemViewHolder(private val binding: ItemHeaderTvShowBinding) :
+    ViewHolder(binding.root) {
+
     fun bind(item: TvShowItem.TvShowHeaderItem) {
-        binding.ivHeaderTvshow.load(item.data.posterPath)
-        binding.tvTitleTvshow.text = item.data.name
+        binding.ivHeaderTvshow.load(BuildConfig.BASE_POSTER_IMG_URL + item.data?.posterPath)
+        binding.tvTitleTvshow.text = item.data?.name
     }
+
 }
 
-class HomeSectionItemViewHolder(private val binding: ItemSectionTvShowBinding) : ViewHolder(binding.root) {
+class HomeSectionItemViewHolder(private val binding: ItemSectionTvShowBinding) :
+    ViewHolder(binding.root) {
+
     private val adapter: TvShowListAdapter by lazy {
         TvShowListAdapter {
-
+           // AnimeDetailActivity.startActivity(itemView.context, it.animeId)
         }
     }
 
@@ -75,5 +83,5 @@ class HomeSectionItemViewHolder(private val binding: ItemSectionTvShowBinding) :
         binding.rvContents.adapter = adapter
         adapter.setItems(item.data)
     }
-}
 
+}

@@ -1,7 +1,7 @@
 package com.binar.melif.data.network.service
 
 import com.binar.melif.BuildConfig
-import com.binar.melif.data.network.model.TvShowResult
+import com.binar.melif.data.network.model.TvShowModel
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -11,30 +11,31 @@ import retrofit2.http.Query
 import java.util.concurrent.TimeUnit
 
 interface TvShowApiService {
-    @GET("3/tv/top_rated")
+
+    @GET("tv/top_rated")
     suspend fun getTopRatedTv(
-        @Query("api_key") api_key:String = "d5524f7d769b5bb3c30b5abbf9706aa3",
-        @Query("language") language: String = "en-Us",
-        @Query("page")page:Int = 1) : List<TvShowResult>
+        @Query("api_key") api_key: String = BuildConfig.API_KEY,
+        @Query("page") page: Int = 1
+        ): TvShowModel
 
-    @GET("3/tv/popular")
-    suspend fun getPopulerTv(
-        @Query("api_key") api_key:String = "d5524f7d769b5bb3c30b5abbf9706aa3",
-        @Query("language") language: String = "en-Us",
-        @Query("page")page:Int = 1) : List<TvShowResult>
+    @GET("tv/popular")
+    suspend fun getPopularTv(
+        @Query("api_key") api_key: String = BuildConfig.API_KEY,
+        @Query("page") page: Int = 1
+        ): TvShowModel
 
-    @GET("3/tv/latest")
-    suspend fun getLatestTv(
-        @Query("api_key") api_key:String = "d5524f7d769b5bb3c30b5abbf9706aa3",
-        @Query("language") language: String = "en-Us") : List<TvShowResult>
+    @GET("tv/airing_today")
+    suspend fun getAiringTv(
+        @Query("api_key") api_key: String = BuildConfig.API_KEY,
+        @Query("page") page: Int = 1):TvShowModel
 
-    companion object{
+    companion object {
         @JvmStatic
-        operator fun invoke(chuckerInterceptor: ChuckerInterceptor):TvShowApiService{
+        operator fun invoke(chuckerInterceptor: ChuckerInterceptor): TvShowApiService {
             val okHttpClient = OkHttpClient.Builder()
                 .addInterceptor(chuckerInterceptor)
-                .connectTimeout(120, TimeUnit.SECONDS)
-                .readTimeout(120, TimeUnit.SECONDS)
+                .connectTimeout(15, TimeUnit.SECONDS)
+                .readTimeout(15, TimeUnit.SECONDS)
                 .build()
 
             val retrofit = Retrofit.Builder()
