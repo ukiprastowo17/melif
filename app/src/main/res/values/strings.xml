@@ -11,5 +11,28 @@
     <string name="text_back">Back</string>
     <string name="desc_about">Hi, Thank you for using Melif App. This app have goal, and its to make you helped when you need all infomation about movie of tv show.</string>
     <string name="desc_about2">Created by people who have a passion to lead the next generator</string>
+    <string name="text_menu">Home</string>
+    <string name="text_icon_menu_logout">Logout</string>
 
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="top_airing_section">Top Airing</string>
+    <string name="anime_list_section">Other Anime</string>
+    <string name="recent_release_section">Recent Release</string>
+    <string name="text_empty_data">No Data</string>
+    <string name="text_url_empty">Url is Empty</string>
+
+
+
+    <string name="text_dialog_logout_task_positive">Yes</string>
+    <string name="text_dialog_logout_task_negative">No</string>
+    <string name="text_logout_dialog">Do you want to Logout ?</string>
+    <string name="title_anime_list">Anime List</string>
+    <string name="what_do_you_want_to_discuss">What do you want to discuss ?</string>
+    <string name="thread_title">Thread Title</string>
+    <string name="text_error_empty_title">Please Input thread title !</string>
+    <string name="text_error_empty_body">Please input thread body !</string>
+    <string name="title_fragment_home">Home</string>
+    <string name="title_fragment_thread">Thread</string>
+    <string name="text_container_display_creator_thread">Created by %s</string>
+    <string name="text_empty_data_subthread">No one reply in this thread :(</string>
 </resources>

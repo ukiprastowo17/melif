@@ -41,9 +41,9 @@ class LandingPageActivity : AppCompatActivity() {
             navigateToBackFragment()
         }
 
-//        binding.tvMenu.setOnClickListener {
-//            navigateToMenuFragment()
-//        }
+        binding.tvMenu.setOnClickListener {
+            navigateToMenuFragment()
+        }
 
 
     }
@@ -67,6 +67,13 @@ class LandingPageActivity : AppCompatActivity() {
     private fun initFragmentViewPager() {
         initAdapter()
         setupViewPager()
+    }
+
+    private fun navigateToMenuFragment(){
+        ServiceLocator.providePreferenceDataSource(this@LandingPageActivity).setSkipIntro(true)
+        val i = Intent(this@LandingPageActivity, HomeActivity::class.java)
+        startActivity(i)
+        finish()
     }
 
     private fun initAdapter() {
@@ -113,21 +120,21 @@ class LandingPageActivity : AppCompatActivity() {
                             binding.tvNext.isEnabled = true
                             binding.tvBack.isInvisible = true
                             binding.tvBack.isEnabled = false
-//                            binding.tvMenu.isGone = true
+                            binding.tvMenu.isGone = true
                         }
                         position < pagerAdapter.getMaxIndex() -> {
                             binding.tvNext.isInvisible = false
                             binding.tvNext.isEnabled = true
                             binding.tvBack.isInvisible = false
                             binding.tvBack.isEnabled = true
-//                            binding.tvMenu.isGone = true
+                            binding.tvMenu.isGone = true
                         }
                         position == pagerAdapter.getMaxIndex() -> {
                             binding.tvNext.isInvisible = true
                             binding.tvNext.isEnabled = false
                             binding.tvBack.isInvisible = false
                             binding.tvBack.isEnabled = true
-//                            binding.tvMenu.isVisible = true
+                            binding.tvMenu.isVisible = true
                         }
                     }
                 }
