@@ -9,10 +9,6 @@ import com.binar.melif.data.repository.UserRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-/**
-Written with love by Muhammad Hermas Yuda Pamungkas
-Github : https://github.com/hermasyp
- **/
 class AuthViewModel(
     private val userRepository: UserRepository,
 ) : ViewModel() {
