@@ -1,5 +1,6 @@
 package com.binar.melif.presentation.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
@@ -9,51 +10,67 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AlertDialog
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.ui.NavigationUI.setupWithNavController
 import com.binar.melif.R
+import com.binar.melif.base.BaseViewModelActivity
 import com.binar.melif.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var binding: ActivityMainBinding
+class MainActivity(override val viewModel: MainViewModel) : BaseViewModelActivity<ActivityMainBinding, MainViewModel>(ActivityMainBinding::inflate) {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+   // override val viewModel: MainViewModel by viewModel()
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+//    override fun initView() {
+//        super.initView()
+//      //  setupNav()//
+//    }
 
-        setSupportActionBar(binding.toolbar)
-
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        appBarConfiguration = AppBarConfiguration(navController.graph)
-        setupActionBarWithNavController(navController, appBarConfiguration)
-
-        binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_home, menu)
+        return super.onCreateOptionsMenu(menu)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return true
-    }
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        when (item.itemId) {
+//            R.id.menu_logout -> {
+//                showDialogLogout()
+//            }
+//        }
+//        return super.onOptionsItemSelected(item)
+//    }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
+//    private fun showDialogLogout() {
+//        AlertDialog.Builder(this)
+//            .apply {
+//                setTitle(getString(R.string.text_logout_dialog))
+//                setPositiveButton(R.string.text_dialog_logout_task_positive) { dialog, _ ->
+//                    logout()
+//                    dialog.dismiss()
+//                }
+//                setNegativeButton(R.string.text_dialog_logout_task_negative) { dialog, _ ->
+//                    dialog.dismiss()
+//                }
+//            }.create().show()
+//    }
+//
+//    private fun logout() {
+//        viewModel.doLogout()
+//        navigateToLogin()
+//    }
+//
+//    private fun navigateToLogin() {
+//        startActivity(Intent(this, AuthActivity::class.java).apply {
+//            flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+//        })
+//    }
+//
+//    private fun setupNav(){
+//        val navController: NavController =
+//            Navigation.findNavController(this, R.id.activity_main_nav_host_fragment)
+//        setupWithNavController(binding.bmvMain, navController)
+//    }
 
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        return navController.navigateUp(appBarConfiguration)
-                || super.onSupportNavigateUp()
-    }
 }

@@ -4,6 +4,8 @@ package com.binar.melif.utils
 import com.binar.melif.data.firebase.model.User
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.DatabaseReference
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlin.coroutines.resumeWithException
 
@@ -60,7 +62,7 @@ suspend fun DatabaseReference.setValueAppendId(mapData: (id: String) -> Any): Bo
     }
 }
 
-/*
+
 fun FirebaseUser.toUserObject(): User {
     return User(
         displayName.orEmpty(),

@@ -70,10 +70,10 @@ class LandingPageActivity : AppCompatActivity() {
     }
 
     private fun navigateToMenuFragment(){
-        ServiceLocator.providePreferenceDataSource(this@LandingPageActivity).setSkipIntro(true)
-        val i = Intent(this@LandingPageActivity, HomeActivity::class.java)
-        startActivity(i)
-        finish()
+//        ServiceLocator.providePreferenceDataSource(this@LandingPageActivity).setSkipIntro(true)
+//        val i = Intent(this@LandingPageActivity, HomeActivity::class.java)
+//        startActivity(i)
+//        finish()
     }
 
     private fun initAdapter() {
