@@ -1,7 +1,7 @@
 package com.binar.melif.data.network.service
 
 import com.binar.melif.BuildConfig
-import com.binar.melif.data.network.model.TvShowModel
+import com.binar.melif.data.network.model.MelifModel
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -16,18 +16,18 @@ interface TvShowApiService {
     suspend fun getTopRatedTv(
         @Query("api_key") api_key: String = BuildConfig.API_KEY,
         @Query("page") page: Int = 1
-        ): TvShowModel
+        ): MelifModel
 
     @GET("tv/popular")
     suspend fun getPopularTv(
         @Query("api_key") api_key: String = BuildConfig.API_KEY,
         @Query("page") page: Int = 1
-        ): TvShowModel
+        ): MelifModel
 
     @GET("tv/airing_today")
     suspend fun getAiringTv(
         @Query("api_key") api_key: String = BuildConfig.API_KEY,
-        @Query("page") page: Int = 1):TvShowModel
+        @Query("page") page: Int = 1):MelifModel
 
     companion object {
         @JvmStatic

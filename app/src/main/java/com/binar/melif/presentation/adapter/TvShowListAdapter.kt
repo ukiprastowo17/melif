@@ -3,18 +3,18 @@ package com.binar.melif.presentation.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.binar.melif.data.network.model.TvShowResultModel
+import com.binar.melif.data.network.model.MelifResultModel
 import com.binar.melif.databinding.ItemTvShowPosterBinding
 import com.binar.melif.databinding.ItemTvShowPosterGridBinding
 
 class TvShowListAdapter(
     private val isGridLayout: Boolean = false,
-    private val itemClick: (TvShowResultModel)-> Unit
+    private val itemClick: (MelifResultModel)-> Unit
 ): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private var items : MutableList<TvShowResultModel> = mutableListOf()
+    private var items : MutableList<MelifResultModel> = mutableListOf()
 
-    fun setItems(items:List<TvShowResultModel>?){
+    fun setItems(items:List<MelifResultModel>?){
         this.items.clear()
         this.items.addAll(items!!)
         notifyDataSetChanged()

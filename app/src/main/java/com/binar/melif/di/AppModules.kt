@@ -8,7 +8,6 @@ import com.binar.melif.data.repository.TvShowRepository
 import com.binar.melif.data.repository.TvShowRepositoryImpl
 import com.binar.melif.presentation.adapter.TvShowAdapter
 import com.binar.melif.presentation.ui.tvshow.TvShowViewModel
-import com.binar.melif.presentation.ui.webdetail.WebDetailViewModel
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions

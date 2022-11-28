@@ -2,12 +2,12 @@ package com.binar.melif.data.network.model
 
 import com.google.gson.annotations.SerializedName
 
-data class TvShowModel(
+data class MelifModel(
     @SerializedName("results")
-    val results: List<TvShowResultModel>
+    val results: List<MelifResultModel>
 )
 
-data class TvShowResultModel(
+data class MelifResultModel(
     @SerializedName("id")
     val id: Int,
     @SerializedName("poster_path")
