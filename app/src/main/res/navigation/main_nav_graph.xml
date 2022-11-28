@@ -9,7 +9,7 @@
         android:id="@+id/fragment_home"
         android:name="com.dev.melif.presentation.ui.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_movie" />
     <fragment
         android:id="@+id/fragment_thread"
         android:name="com.dev.melif.presentation.ui.thread.ThreadFragment"
