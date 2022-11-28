@@ -38,6 +38,21 @@
         <item name="lineHeight">40dp</item>
         <item name="android:fontFamily">@font/roboto_bold</item>
     </style>
+   <!-- Text Title Bold White-->
+    <style name="TextTitle.BoldOverview" parent="Theme.Melif">
+        <item name="android:textColor">@color/white_melif</item>
+        <item name="android:textSize">30sp</item>
+        <item name="lineHeight">40dp</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+    </style>
+
+ <!-- Text Title Bold Detail -->
+    <style name="TextTitle.BoldDetail" parent="Theme.Melif">
+        <item name="android:textColor">@color/yellow_melif</item>
+        <item name="android:textSize">34sp</item>
+        <item name="lineHeight">28dp</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+    </style>
 
     <!-- Text Title Bold Small -->
     <style name="TextTitle.BoldSmall" parent="Theme.Melif">
@@ -64,6 +79,14 @@
     <style name="TextDesc.Regular" parent="Theme.Melif">
         <item name="android:textColor">@color/white_melif</item>
         <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <!-- Text Description Reg2 -->
+    <style name="TextDesc.Reg" parent="Theme.Melif">
+        <item name="android:textColor">@color/white_melif</item>
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">18dp</item>
         <item name="android:fontFamily">@font/roboto_regular</item>
     </style>
 

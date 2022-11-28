@@ -31,12 +31,24 @@ android {
     productFlavors {
         production {
             dimension = 'version'
-            buildConfigField("String", "BASE_URL_MELIF", "\"https://api.themoviedb.org\"")
+            buildConfigField("String", "BASE_URL_MELIF", "\"https://api.themoviedb.org/3/\"")
             buildConfigField("String", "FIREBASE_WEB_CLIENT_ID", "\"974071425044-02ca33gdhj0eq6b46gv5qgqubhek4mov.apps.googleusercontent.com\"")
+            buildConfigField 'String', 'API_KEY', '"d5524f7d769b5bb3c30b5abbf9706aa3"'
+            buildConfigField 'String', 'BASE_POSTER_IMG_URL', '"https://image.tmdb.org/t/p/w500"'
         }
     }
 
 
+    flavorDimensions "version"
+    productFlavors {
+        production {
+            dimension = 'version'
+            buildConfigField("String", "BASE_URL_MELIF", "\"https://api.themoviedb.org/3/\"")
+            buildConfigField("String", "FIREBASE_WEB_CLIENT_ID", "\"974071425044-02ca33gdhj0eq6b46gv5qgqubhek4mov.apps.googleusercontent.com\"")
+            buildConfigField 'String', 'API_KEY', '"d5524f7d769b5bb3c30b5abbf9706aa3"'
+            buildConfigField 'String', 'BASE_POSTER_IMG_URL', '"https://image.tmdb.org/t/p/w500"'
+        }
+    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -105,4 +117,16 @@ dependencies {
     implementation 'com.firebaseui:firebase-ui-database:8.0.2'
 
     implementation 'com.google.android.gms:play-services-auth:20.3.0'
+
+    //firebase
+    implementation platform('com.google.firebase:firebase-bom:31.0.3')
+    implementation 'com.google.firebase:firebase-database-ktx'
+    implementation 'com.google.firebase:firebase-storage-ktx'
+    implementation 'com.google.firebase:firebase-auth-ktx'
+
+    // Firebase UI
+    implementation 'com.firebaseui:firebase-ui-auth:8.0.2'
+    implementation 'com.firebaseui:firebase-ui-database:8.0.2'
+
+    implementation 'com.google.android.gms:play-services-auth:20.4.0'
 }

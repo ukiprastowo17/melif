@@ -22,6 +22,45 @@ suspend fun <T> Task<T>.await(): T {
     }
 }
 
+@OptIn(ExperimentalCoroutinesApi::class)
+suspend fun DatabaseReference.setValueAsync(data: Any): Boolean {
+    return suspendCancellableCoroutine { cont ->
+        setValue(data)
+            .addOnCompleteListener {
+                cont.resume(true, onCancellation = null)
+
+            }
+            .addOnCanceledListener {
+                cont.resume(false, onCancellation = null)
+
+            }
+            .addOnFailureListener {
+                cont.resumeWithException(it)
+            }
+
+    }
+}
+
+@OptIn(ExperimentalCoroutinesApi::class)
+suspend fun DatabaseReference.setValueAppendId(mapData: (id: String) -> Any): Boolean {
+    return suspendCancellableCoroutine { cont ->
+        setValue(mapData(key.toString()))
+            .addOnCompleteListener {
+                cont.resume(true, onCancellation = null)
+
+            }
+            .addOnCanceledListener {
+                cont.resume(false, onCancellation = null)
+
+            }
+            .addOnFailureListener {
+                cont.resumeWithException(it)
+            }
+
+    }
+}
+
+/*
 fun FirebaseUser.toUserObject(): User {
     return User(
         displayName.orEmpty(),
