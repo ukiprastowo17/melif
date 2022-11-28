@@ -17,7 +17,7 @@ class TvShowAdapter(var listener: ((TvShowItem) -> Unit)? = null)
 
     val data = mutableListOf<TvShowItem>()
 
-    fun setItems(newData: List<TvShowItem>) {
+    fun setItemsTv(newData: List<TvShowItem>) {
         data.clear()
         data.addAll(newData)
         notifyDataSetChanged()

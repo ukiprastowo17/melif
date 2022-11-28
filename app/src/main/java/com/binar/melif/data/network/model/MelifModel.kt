@@ -13,5 +13,7 @@ data class MelifResultModel(
     @SerializedName("poster_path")
     val posterPath: String,
     @SerializedName("name")
-    val name: String
+    val name: String,
+    @SerializedName("original_title")
+    val titleName: String
 )

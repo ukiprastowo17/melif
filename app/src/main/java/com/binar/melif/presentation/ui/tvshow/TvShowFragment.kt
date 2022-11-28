@@ -63,7 +63,7 @@ class TvShowFragment :
         binding.rvHome.isVisible = true
         binding.pbHome.isVisible = false
         binding.tvErrorHome.isVisible = false
-        data?.let { adapter.setItems(it) }
+        data?.let { adapter.setItemsTv(it) }
     }
 
     private fun showEmptyData() {
