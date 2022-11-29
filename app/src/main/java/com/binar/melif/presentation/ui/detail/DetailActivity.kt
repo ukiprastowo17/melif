@@ -6,10 +6,12 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
+import android.widget.Toast
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import androidx.core.os.bundleOf
 import androidx.core.view.ViewCompat
 import androidx.core.view.isVisible
+import androidx.navigation.fragment.findNavController
 import coil.load
 import com.binar.melif.BuildConfig
 import com.binar.melif.R
@@ -18,6 +20,7 @@ import com.binar.melif.base.wrapper.Resource
 import com.binar.melif.data.network.api.model.MovieDetail
 import com.binar.melif.data.network.api.model.TvShowDetail
 import com.binar.melif.databinding.ActivityDetailBinding
+import com.binar.melif.presentation.ui.video.YoutubePlay
 import com.google.android.material.appbar.AppBarLayout
 import org.koin.core.parameter.parametersOf
 
@@ -38,7 +41,6 @@ class DetailActivity : BaseViewModelActivity<ActivityDetailBinding, DetailViewMo
             })
         }
     }
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,13 +79,23 @@ class DetailActivity : BaseViewModelActivity<ActivityDetailBinding, DetailViewMo
                 }
             })
         }
+
+        binding.fabPlay.setOnClickListener {
+            val video = YoutubePlay(viewModel.videos.value!!.payload?.results!!.last().key)
+            video.show(supportFragmentManager, "Video")
+
+        }
     }
 
     override fun initView() {
         super.initView()
-       // viewModel.fetchDetailTvShow("1399")
-        viewModel.fetchDetailMovie("505642")
+        //tvshow
+        viewModel.fetchDetailTvShow("1396")
+        viewModel.fetchVideoTvShow("1396")
 
+        //movie
+        /*    viewModel.fetchDetailMovie("436270")
+            viewModel.fetchVideoMovie("436270")*/
     }
 
     override fun observeData() {
@@ -156,6 +168,7 @@ class DetailActivity : BaseViewModelActivity<ActivityDetailBinding, DetailViewMo
             bindDataTvShow(dataTvShow)
         }
     }
+
     private fun showDataMovie(dataMovie: MovieDetail) {
         with(binding) {
             progressBarDetail.isVisible = false
@@ -176,6 +189,8 @@ class DetailActivity : BaseViewModelActivity<ActivityDetailBinding, DetailViewMo
             tvDescDetail.text = dataTvShow.overview
             collapseLayout.title = dataTvShow.name
             tvGenreDetail.text = ""
+            ivTrailer.load(BuildConfig.BASE_POSTER_IMG_URL + dataTvShow.backdropPath)
+
             dataTvShow.genres.forEachIndexed { index, genre ->
                 val result = if (index == dataTvShow.genres.size - 1) {
                     genre.name
@@ -186,6 +201,7 @@ class DetailActivity : BaseViewModelActivity<ActivityDetailBinding, DetailViewMo
             }
         }
     }
+
     private fun bindDataMovie(dataMovie: MovieDetail) {
         title = dataMovie.originalTitle
         with(binding) {
@@ -197,6 +213,8 @@ class DetailActivity : BaseViewModelActivity<ActivityDetailBinding, DetailViewMo
             tvDescDetail.text = dataMovie.overview
             collapseLayout.title = dataMovie.originalTitle
             tvGenreDetail.text = ""
+            ivTrailer.load(BuildConfig.BASE_POSTER_IMG_URL + dataMovie.backdropPath)
+
             dataMovie.genres.forEachIndexed { index, genre ->
                 val result = if (index == dataMovie.genres.size - 1) {
                     genre.name
