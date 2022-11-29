@@ -19,12 +19,21 @@ import com.binar.melif.base.wrapper.Resource
 import com.binar.melif.data.network.api.model.MovieDetail
 import com.binar.melif.data.network.api.model.TvShowDetail
 import com.binar.melif.databinding.ActivityDetailBinding
+import com.binar.melif.utils.Extensions
 import com.google.android.material.appbar.AppBarLayout
 import org.koin.core.parameter.parametersOf
+import java.math.RoundingMode
+import java.text.DecimalFormat
+import java.text.DecimalFormatSymbols
 
 class DetailActivity : BaseViewModelActivity<ActivityDetailBinding, DetailViewModel>(
     ActivityDetailBinding::inflate
 ) {
+
+
+
+    val df = DecimalFormat("#,###.##")
+
 
     override val viewModel: DetailViewModel by viewModel {
         parametersOf(intent.extras ?: bundleOf())
@@ -167,10 +176,11 @@ class DetailActivity : BaseViewModelActivity<ActivityDetailBinding, DetailViewMo
     private fun bindDataTvShow(dataTvShow: TvShowDetail) {
         title = dataTvShow.name
         with(binding) {
+            df.roundingMode = RoundingMode.CEILING
             ivHeaderDetail.load(BuildConfig.BASE_POSTER_IMG_URL + dataTvShow.backdropPath)
             imgPosterDetail.load(BuildConfig.BASE_POSTER_IMG_URL + dataTvShow.posterPath)
             tvTitleDetail.text = dataTvShow.name
-            tvRateDetail.text = dataTvShow.voteAverage.toString()
+            tvRateDetail.text = dataTvShow.voteAverage.toString() + "(" + df.format(dataTvShow.voteCount) + ")"
             tvReleaseDetail.text = dataTvShow.firstAirDate
             tvDescDetail.text = dataTvShow.overview
             collapseLayout.title = dataTvShow.name
@@ -218,4 +228,6 @@ class DetailActivity : BaseViewModelActivity<ActivityDetailBinding, DetailViewMo
             })
         }
     }
+
+
 }

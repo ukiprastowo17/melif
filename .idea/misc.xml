@@ -17,6 +17,7 @@
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.178" />
         <entry key="app/src/main/res/drawable/bg_edit_text_shadow.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/bg_gradient_bottom_to_top.xml" value="0.105" />
+        <entry key="app/src/main/res/drawable/ic_baseline_play_arrow_48.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.178" />
         <entry key="app/src/main/res/drawable/ic_logout.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_more.xml" value="0.105" />
@@ -48,6 +49,7 @@
         <entry key="app/src/main/res/layout/item_thread.xml" value="0.1085934159897392" />
         <entry key="app/src/main/res/layout/item_tv_show_poster.xml" value="0.231722958529286" />
         <entry key="app/src/main/res/layout/item_tv_show_poster_grid.xml" value="0.231722958529286" />
+        <entry key="app/src/main/res/layout/item_video.xml" value="0.231722958529286" />
         <entry key="app/src/main/res/menu/menu_bottom_main.xml" value="0.231722958529286" />
         <entry key="app/src/main/res/menu/menu_home.xml" value="0.231722958529286" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.231722958529286" />

@@ -77,8 +77,7 @@ class HomeSectionItemViewHolder(private val binding: ItemSectionTvShowBinding) :
 
     private val adapter: TvShowListAdapter by lazy {
         TvShowListAdapter {
-
-            Log.d("idMovieee", it.id.toString())
+            
             DetailActivity.startActivity(itemView.context, it.id.toString(), "TV")
         }
     }

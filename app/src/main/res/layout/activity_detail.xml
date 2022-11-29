@@ -137,37 +137,55 @@
         android:clipToPadding="false"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
+            android:orientation="vertical"
             android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/tv_overview"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="50dp"
                 style="@style/TextTitle.BoldOverview"
-                android:text="@string/text_overview"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:text="@string/text_overview" />
 
             <TextView
                 android:id="@+id/tv_desc_detail"
                 style="@style/TextDesc.Reg"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
                 android:justificationMode="inter_word"
                 tools:text="@string/text_overview_dummy"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@id/tv_overview"
-                app:layout_constraintTop_toBottomOf="@id/tv_overview" />
+                />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="50dp"
+                style="@style/TextTitle.BoldOverview"
+                android:text="Director" />
+
+            <TextView
+                android:id="@+id/tv_dir"
+                style="@style/TextDesc.Reg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:justificationMode="inter_word"
+
+                />
+
+
+
+        </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
     <TextView
