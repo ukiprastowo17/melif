@@ -6,6 +6,7 @@ import android.os.CountDownTimer
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.binar.melif.base.BaseViewModelActivity
+import com.binar.melif.databinding.ActivityLandingPageBinding
 import com.binar.melif.databinding.ActivitySplashScreenBinding
 import com.binar.melif.di.ServiceLocator
 import com.binar.melif.presentation.ui.auth.AuthActivity
@@ -13,19 +14,23 @@ import com.binar.melif.presentation.ui.main.MainActivity
 import com.binar.melif.presentation.ui.slider.LandingPageActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
-class SplashScreenActivity :   BaseViewModelActivity<ActivitySplashScreenBinding, SplashViewModel>(ActivitySplashScreenBinding::inflate){
+class SplashScreenActivity : AppCompatActivity() {
+    private val binding: ActivitySplashScreenBinding  by lazy {
+        ActivitySplashScreenBinding.inflate(layoutInflater)
+    }
     private var timer: CountDownTimer? = null
 
-    override val viewModel: SplashViewModel by viewModel()
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         supportActionBar?.hide()
-        viewModel.getCurrentUser()
+
 
         setTimerSplashScreen()
 
@@ -60,23 +65,5 @@ class SplashScreenActivity :   BaseViewModelActivity<ActivitySplashScreenBinding
         timer?.start()
     }
 
-    override fun observeData() {
-        viewModel.currentUserLiveData.observe(this) { user ->
-            if (user == null) {
-                lifecycleScope.launch {
-                    delay(1000)
-                    startActivity(Intent(this@SplashScreenActivity, AuthActivity::class.java).apply {
-                        flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                    })
-                }
-            } else {
-                lifecycleScope.launch {
-                    delay(1000)
-                    startActivity(Intent(this@SplashScreenActivity, MainActivity::class.java).apply {
-                        flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                    })
-                }
-            }
-        }
-    }
+
 }

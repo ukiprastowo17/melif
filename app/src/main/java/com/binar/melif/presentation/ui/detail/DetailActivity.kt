@@ -29,15 +29,7 @@ class DetailActivity : BaseViewModelActivity<ActivityDetailBinding, DetailViewMo
         parametersOf(intent.extras ?: bundleOf())
     }
 
-    companion object {
-        const val TITLE = "title"
-        const val EXTRA_TYPE = "EXTRA_TYPE"
-        fun startActivity(context: Context, animeId: String) {
-            context.startActivity(Intent(context, DetailActivity::class.java).apply {
-                putExtra(EXTRA_TYPE, animeId)
-            })
-        }
-    }
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -62,7 +54,7 @@ class DetailActivity : BaseViewModelActivity<ActivityDetailBinding, DetailViewMo
                 ) {
                     toolbar.apply {
                         setBackgroundColor(Color.WHITE)
-                        title = intent.getStringExtra(TITLE)
+                        title = intent.getStringExtra("")
                         visibility = View.VISIBLE
                         setNavigationIcon(R.drawable.ic_back)
                     }
@@ -82,7 +74,16 @@ class DetailActivity : BaseViewModelActivity<ActivityDetailBinding, DetailViewMo
     override fun initView() {
         super.initView()
        // viewModel.fetchDetailTvShow("1399")
-        viewModel.fetchDetailMovie("505642")
+//        viewModel.fetchDetailMovie("505642")
+
+        viewModel.fetchDetailTvShow()
+
+      if (EXTRA_TYPE == "TV"){
+//          viewModel.fetchDetailTvShow(EXTRAS_ID)
+      }else{
+//          viewModel.fetchDetailMovie("505642")
+      }
+
 
     }
 
@@ -205,6 +206,18 @@ class DetailActivity : BaseViewModelActivity<ActivityDetailBinding, DetailViewMo
                 }
                 tvGenreDetail.append(result)
             }
+        }
+    }
+
+    companion object {
+        const val EXTRAS_ID = "EXTRAS_ID"
+        const val EXTRA_TYPE = "EXTRA_TYPE"
+        fun startActivity(context: Context, Id: String, Type:String) {
+
+            context.startActivity(Intent(context, DetailActivity::class.java).apply {
+                putExtra(EXTRAS_ID, Id)
+                putExtra(EXTRA_TYPE, Type)
+            })
         }
     }
 }

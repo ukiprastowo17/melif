@@ -2,6 +2,8 @@ package com.binar.melif.data.network.api.service
 
 import com.binar.melif.BuildConfig
 import com.binar.melif.data.network.api.model.MovieDetail
+import com.binar.melif.data.network.api.model.MovieModel
+import com.binar.melif.data.network.api.model.TvShow
 import com.binar.melif.data.network.api.model.TvShowDetail
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import okhttp3.Interceptor
@@ -24,6 +26,41 @@ interface MelifApiService {
     suspend fun getTvShowDetail(
         @Path("tv_id") tv_id: String,
         @Query("api_key") api_key: String = BuildConfig.API_KEY): TvShowDetail
+
+    @GET("tv/top_rated")
+    suspend fun getTopRatedTv(
+        @Query("api_key") api_key: String = BuildConfig.API_KEY,
+        @Query("page") page: Int = 1
+    ): TvShow
+
+    @GET("tv/popular")
+    suspend fun getPopularTv(
+        @Query("api_key") api_key: String = BuildConfig.API_KEY,
+        @Query("page") page: Int = 1
+    ): TvShow
+
+    @GET("tv/airing_today")
+    suspend fun getAiringTv(
+        @Query("api_key") api_key: String = BuildConfig.API_KEY,
+        @Query("page") page: Int = 1): TvShow
+
+
+    @GET("movie/now_playing")
+    suspend fun getNowPlayingMovie(
+        @Query("api_key") api_key: String = BuildConfig.API_KEY,
+        @Query("page") page: Int = 1
+    ): MovieModel
+
+    @GET("movie/popular")
+    suspend fun getPopularMovie(
+        @Query("api_key") api_key: String = BuildConfig.API_KEY,
+        @Query("page") page: Int = 1
+    ): MovieModel
+
+    @GET("movie/top_rated")
+    suspend fun getTopRatedMovie(
+        @Query("api_key") api_key: String = BuildConfig.API_KEY,
+        @Query("page") page: Int = 1):MovieModel
 
     companion object {
         @JvmStatic

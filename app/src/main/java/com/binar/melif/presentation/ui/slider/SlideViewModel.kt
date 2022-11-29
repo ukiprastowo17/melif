@@ -1,4 +1,4 @@
-package com.binar.melif.presentation.ui.splashscreen
+package com.binar.melif.presentation.ui.slider
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -6,7 +6,7 @@ import com.binar.melif.data.firebase.model.User
 import com.binar.melif.data.repository.UserRepository
 
 
-class SplashViewModel(
+class SlideViewModel(
     private val userRepository: UserRepository,
 ) : ViewModel() {
 

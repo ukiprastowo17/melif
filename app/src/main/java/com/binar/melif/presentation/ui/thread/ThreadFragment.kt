@@ -1,5 +1,6 @@
 package com.binar.melif.presentation.ui.thread
 
+
 import androidx.core.view.isVisible
 import com.binar.melif.R
 import com.binar.melif.base.BaseViewModelFragment
@@ -8,8 +9,9 @@ import com.binar.melif.presentation.adapter.ThreadListAdapter
 import com.binar.melif.presentation.ui.threadform.ThreadFormBottomSheet
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class ThreadFragment :
+class ThreadFragment  :
     BaseViewModelFragment<FragmentThreadBinding, ThreadViewModel>(FragmentThreadBinding::inflate) {
+
     override val viewModel: ThreadViewModel by viewModel()
 
     private val adapter: ThreadListAdapter by lazy {

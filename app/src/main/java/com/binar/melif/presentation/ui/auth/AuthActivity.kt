@@ -10,6 +10,7 @@ import com.binar.melif.BuildConfig
 import com.binar.melif.base.BaseViewModelActivity
 import com.binar.melif.base.wrapper.Resource
 import com.binar.melif.databinding.ActivityAuthBinding
+
 import com.binar.melif.presentation.ui.main.MainActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient

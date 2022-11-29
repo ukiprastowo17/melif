@@ -1,6 +1,7 @@
 package com.binar.melif.presentation.ui.detail
 
 import android.os.Bundle
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -16,12 +17,13 @@ class DetailViewModel(private val repository: Repository, val intentData: Bundle
     val detailResultTvShow = MutableLiveData<Resource<TvShowDetail>>()
     val detailResultMovie = MutableLiveData<Resource<MovieDetail>>()
 
-    fun fetchDetailTvShow(tvId: String){
-        //val tvId = intentData.getString(DetailActivity.EXTRA_TYPE)
+    fun fetchDetailTvShow(){
+        val tvId = intentData.getString(DetailActivity.EXTRAS_ID)
+        Log.d("idMove",tvId.toString())
         tvId.let {
             viewModelScope.launch(Dispatchers.IO) {
                 detailResultTvShow.postValue(Resource.Loading())
-                detailResultTvShow.postValue(repository.getDetailTvShow(tvId))
+                detailResultTvShow.postValue(repository.getDetailTvShow(tvId.toString()))
             }
         }
     }

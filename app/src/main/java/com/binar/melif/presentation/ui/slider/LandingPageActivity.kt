@@ -6,21 +6,27 @@ import android.os.Bundle
 import androidx.core.view.isGone
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
+import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.widget.ViewPager2
 import com.binar.melif.R
+import com.binar.melif.base.BaseViewModelActivity
 import com.binar.melif.databinding.ActivityLandingPageBinding
 import com.binar.melif.di.ServiceLocator
 import com.binar.melif.presentation.ui.auth.AuthActivity
+import com.binar.melif.presentation.ui.main.MainActivity
 import com.binar.melif.presentation.ui.slider.model.SliderData
 import com.binar.melif.presentation.ui.slider.utils.ViewPagerAdapter
 import com.binar.projectgroupmakerbinar.ui.slider.utils.getNextIndex
 import com.binar.projectgroupmakerbinar.ui.slider.utils.getPreviousIndex
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import org.koin.androidx.viewmodel.ext.android.viewModel
+
+class LandingPageActivity : BaseViewModelActivity<ActivityLandingPageBinding , SlideViewModel>(ActivityLandingPageBinding::inflate){
 
 
-class LandingPageActivity : AppCompatActivity() {
-    private val binding: ActivityLandingPageBinding by lazy {
-        ActivityLandingPageBinding.inflate(layoutInflater)
-    }
+    override val viewModel: SlideViewModel by viewModel()
+
 
     private val pagerAdapter: ViewPagerAdapter by lazy {
         ViewPagerAdapter(supportFragmentManager, lifecycle)
@@ -71,10 +77,11 @@ class LandingPageActivity : AppCompatActivity() {
     }
 
     private fun navigateToMenuFragment(){
-        ServiceLocator.providePreferenceDataSource(this@LandingPageActivity).setSkipIntro(true)
-        val i = Intent(this@LandingPageActivity, AuthActivity::class.java)
-        startActivity(i)
-        finish()
+        viewModel.getCurrentUser()
+//        ServiceLocator.providePreferenceDataSource(this@LandingPageActivity).setSkipIntro(true)
+//        val i = Intent(this@LandingPageActivity, AuthActivity::class.java)
+//        startActivity(i)
+//        finish()
     }
 
     private fun initAdapter() {
@@ -144,5 +151,25 @@ class LandingPageActivity : AppCompatActivity() {
         binding.dotsIndicator.attachTo(binding.vpIntro)
     }
 
+
+    override fun observeData() {
+        viewModel.currentUserLiveData.observe(this) { user ->
+            if (user == null) {
+                lifecycleScope.launch {
+                    delay(1000)
+                    startActivity(Intent(this@LandingPageActivity, AuthActivity::class.java).apply {
+                        flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                    })
+                }
+            } else {
+                lifecycleScope.launch {
+                    delay(1000)
+                    startActivity(Intent(this@LandingPageActivity, MainActivity::class.java).apply {
+                        flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                    })
+                }
+            }
+        }
+    }
 
 }
