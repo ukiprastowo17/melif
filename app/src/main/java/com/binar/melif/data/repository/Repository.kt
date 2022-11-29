@@ -5,6 +5,7 @@ import com.binar.melif.base.wrapper.Resource
 import com.binar.melif.data.local.entity.FavoriteMovieEntity
 import com.binar.melif.data.network.api.datasource.MelifApiDataSource
 import com.binar.melif.data.network.api.datasource.MovieFavDataSource
+import com.binar.melif.data.network.api.model.MelifVideo
 import com.binar.melif.data.network.api.model.MovieDetail
 import com.binar.melif.data.network.api.model.TvShowDetail
 
@@ -13,6 +14,8 @@ interface Repository {
     suspend fun getDetailMovie(movie_id: String): Resource<MovieDetail>
     suspend fun getAllMovieFav(): Resource<List<FavoriteMovieEntity>>
     suspend fun insertMovieFav(movieFav: FavoriteMovieEntity): Resource<Number>
+    suspend fun getVideoTvShow(tv_id: String): Resource<MelifVideo>
+    suspend fun getVideoMovie(movie_id: String): Resource<MelifVideo>
 }
 
 class RepositoryImpl(private val networkDataSource: MelifApiDataSource,
@@ -34,5 +37,13 @@ class RepositoryImpl(private val networkDataSource: MelifApiDataSource,
 
     override suspend fun insertMovieFav(movieFav: FavoriteMovieEntity): Resource<Number> {
         return proceed { movieFavDataSource.insertMovieFav(movieFav) }
+    }
+
+    override suspend fun getVideoMovie(movie_id: String): Resource<MelifVideo> {
+        return doNetworkCall { networkDataSource.getVideoMovie(movie_id) }
+    }
+
+    override suspend fun getVideoTvShow(tv_id: String): Resource<MelifVideo> {
+        return doNetworkCall { networkDataSource.getVideoTvShow(tv_id) }
     }
 }

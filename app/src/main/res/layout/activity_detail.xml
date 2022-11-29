@@ -151,55 +151,79 @@
         android:clipToPadding="false"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:orientation="vertical"
             android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/tv_overview"
-                android:layout_width="wrap_content"
+                style="@style/TextTitle.BoldOverview"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="50dp"
-                style="@style/TextTitle.BoldOverview"
-                android:text="@string/text_overview" />
+                android:text="@string/text_overview"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tv_desc_detail"
                 style="@style/TextDesc.Reg"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
+                android:layout_marginEnd="30dp"
                 android:justificationMode="inter_word"
-                tools:text="@string/text_overview_dummy"
-                />
+                app:layout_constraintBottom_toTopOf="@id/tv_watch_trailer"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/tv_overview"
+                app:layout_constraintTop_toBottomOf="@id/tv_overview"
+                tools:text="@string/text_overview_dummy" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/tv_watch_trailer"
+                style="@style/TextTitle.BoldOverview"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="50dp"
-                style="@style/TextTitle.BoldOverview"
-                android:text="Director" />
+                android:text="@string/text_watch_trailer"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_desc_detail" />
 
-            <TextView
-                android:id="@+id/tv_dir"
-                style="@style/TextDesc.Reg"
+            <ImageView
+                android:id="@+id/iv_trailer"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginBottom="30dp"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_watch_trailer"
+                tools:src="@drawable/ic_dummy_backdrop" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_play"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
-                android:justificationMode="inter_word"
+                android:layout_marginEnd="8dp"
+                android:alpha="0.7"
+                android:src="@drawable/ic_play"
+                app:backgroundTint="@color/red_button"
+                app:borderWidth="1dp"
+                app:fabSize="mini"
+                app:layout_constraintBottom_toBottomOf="@id/iv_trailer"
+                app:layout_constraintEnd_toEndOf="@id/iv_trailer"
+                app:layout_constraintStart_toStartOf="@id/iv_trailer"
+                app:layout_constraintTop_toTopOf="@id/iv_trailer"
+                app:tint="@color/white" />
 
-                />
 
-
-
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 
     <TextView

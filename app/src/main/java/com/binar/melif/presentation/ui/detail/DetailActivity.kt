@@ -139,6 +139,25 @@ class DetailActivity : BaseViewModelActivity<ActivityDetailBinding, DetailViewMo
                 }
             }
         }
+        viewModel.detailResultMovie.observe(this) {
+            when (it) {
+                is Resource.Empty -> {
+                    //do nothing
+                }
+                is Resource.Error -> {
+                    showError()
+                    showErrorMessage(it.exception?.message.orEmpty())
+                }
+                is Resource.Loading -> {
+                    showLoading()
+                }
+                is Resource.Success -> {
+                    it.payload?.let { detailMovie ->
+                        showDataMovie(detailMovie)
+                    }
+                }
+            }
+        }
     }
 
     private fun showError() {
@@ -197,6 +216,9 @@ class DetailActivity : BaseViewModelActivity<ActivityDetailBinding, DetailViewMo
             tvDescDetail.text = dataTvShow.overview
             collapseLayout.title = dataTvShow.name
             tvGenreDetail.text = ""
+            ivTrailer.load(BuildConfig.BASE_POSTER_IMG_URL + dataTvShow.backdropPath)
+
+
             dataTvShow.genres.forEachIndexed { index, genre ->
                 val result = if (index == dataTvShow.genres.size - 1) {
                     genre.name
@@ -239,6 +261,8 @@ class DetailActivity : BaseViewModelActivity<ActivityDetailBinding, DetailViewMo
             tvDescDetail.text = dataMovie.overview
             collapseLayout.title = dataMovie.originalTitle
             tvGenreDetail.text = ""
+            ivTrailer.load(BuildConfig.BASE_POSTER_IMG_URL + dataMovie.backdropPath)
+
             dataMovie.genres.forEachIndexed { index, genre ->
                 val result = if (index == dataMovie.genres.size - 1) {
                     genre.name

@@ -23,6 +23,7 @@
         <entry key="app/src/main/res/drawable/ic_logout.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_more.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_person.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_play.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_send_non_active.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_thread.xml" value="0.105" />
         <entry key="app/src/main/res/layout/activity_about.xml" value="0.1" />
@@ -53,6 +54,7 @@
         <entry key="app/src/main/res/layout/item_tv_show_poster.xml" value="0.231722958529286" />
         <entry key="app/src/main/res/layout/item_tv_show_poster_grid.xml" value="0.231722958529286" />
         <entry key="app/src/main/res/layout/item_video.xml" value="0.231722958529286" />
+        <entry key="app/src/main/res/layout/youtube_play.xml" value="0.231722958529286" />
         <entry key="app/src/main/res/menu/menu_bottom_main.xml" value="0.231722958529286" />
         <entry key="app/src/main/res/menu/menu_home.xml" value="0.231722958529286" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.231722958529286" />

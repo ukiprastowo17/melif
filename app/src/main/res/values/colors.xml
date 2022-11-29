@@ -15,4 +15,5 @@
     <color name="color_master">#FFB43A</color>
     <color name="grey">#202124</color>
     <color name="bg_color">#4D000000</color>
+    <color name="red_button">#FF0000</color>
 </resources>

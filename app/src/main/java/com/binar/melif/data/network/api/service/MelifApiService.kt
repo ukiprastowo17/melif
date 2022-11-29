@@ -1,10 +1,7 @@
 package com.binar.melif.data.network.api.service
 
 import com.binar.melif.BuildConfig
-import com.binar.melif.data.network.api.model.MovieDetail
-import com.binar.melif.data.network.api.model.MovieModel
-import com.binar.melif.data.network.api.model.TvShow
-import com.binar.melif.data.network.api.model.TvShowDetail
+import com.binar.melif.data.network.api.model.*
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -63,6 +60,18 @@ interface MelifApiService {
     suspend fun getTopRatedMovie(
         @Query("api_key") api_key: String = BuildConfig.API_KEY,
         @Query("page") page: Int = 1):MovieModel
+
+    @GET("movie/{movie_id}/videos")
+    suspend fun getMovieVideo(
+        @Path("movie_id") movie_id: String,
+        @Query("api_key") api_key: String = BuildConfig.API_KEY
+    ): MelifVideo
+
+    @GET("tv/{tv_id}/videos")
+    suspend fun getTvShowVideo(
+        @Path("tv_id") tv_id: String,
+        @Query("api_key") api_key: String = BuildConfig.API_KEY
+    ): MelifVideo
 
     companion object {
         @JvmStatic

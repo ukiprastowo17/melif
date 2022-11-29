@@ -50,11 +50,13 @@
     <string name="popular_tv_section">Popular Tv</string>
     <string name="latest_tv_section">Latest TV</string>
     <string name="top_rated_tv_section">Top Rated TV</string>
-
+    <string name="text_error_youtube">Error!</string>
     <string name="text_tvshow_list">Tv Show List</string>
     <string name="text_new_release">New Release</string>
     <string name="text_lp01">Only With Us Only \nFor You</string>
     <string name="text_lp02">Welcome To Melif \nMovie Catalogue</string>
     <string name="text_lp03">If You Looking For \nThe Latest Movie</string>
+    <string name="text_trailer_no">Trailer Not Available</string>
+    <string name="text_watch_trailer">Watch Trailer</string>
 
 </resources>
