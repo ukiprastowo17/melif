@@ -67,4 +67,27 @@ object AppModules {
         }
     }
 
+    private val networkModule = module {
+        single { ChuckerInterceptor.Builder(androidContext()).build() }
+        single { MovieApiService.invoke(get()) }
+    }
+
+    private val dataSource = module {
+        single<MovieApiDataSource> { MovieDataSourceImpl(get()) } // singleton
+    }
+
+    private val repository = module {
+        single<MovieRepository> { MovieRepositoryImpl(get()) } // singleton
+    }
+
+    private val viewModels = module {
+        viewModel { MovieViewModel(get()) }
+
+    }
+
+    private val adapter = module {
+        factory { MovieAdapter() }
+    }
+
+
 }

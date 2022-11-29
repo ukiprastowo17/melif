@@ -27,4 +27,10 @@
 
     <string name="text_example_thread">Misal ini adalah Thread Activity</string>
 
+    <string name="text_movie_list">Movie List</string>
+    <string name="text_empty_data">No Data</string>
+    <string name="popular_movie_section">Popular Movie</string>
+    <string name="text_new_playing">Now Playing Movie</string>
+    <string name="top_rated_movie_section">Top Rated Movie</string>
+    <string name="text_url_empty">URL Empty</string>
 </resources>
