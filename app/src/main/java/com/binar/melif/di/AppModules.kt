@@ -1,17 +1,6 @@
 package com.binar.melif.di
 
 import com.binar.melif.BuildConfig
-import com.binar.melif.data.firebase.FirebaseUserAuthDataSourceImpl
-import com.binar.melif.data.firebase.UserAuthDataSource
-import com.binar.melif.data.network.api.datasource.MelifApiDataSource
-import com.binar.melif.data.network.api.datasource.MelifApiDataSourceImpl
-import com.binar.melif.data.network.api.service.MelifApiService
-import com.binar.melif.data.repository.Repository
-import com.binar.melif.data.repository.RepositoryImpl
-import com.binar.melif.data.repository.UserRepository
-import com.binar.melif.data.repository.UserRepositoryImpl
-import com.binar.melif.presentation.ui.detail.DetailViewModel
-import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
@@ -50,7 +39,17 @@ object AppModules {
         viewModelOf(::SplashViewModel)
     }
 
+    private val dataSource = module {
+        single<UserAuthDataSource> { FirebaseUserAuthDataSourceImpl(get()) } // singleton
+    }
 
+    private val repository = module {
+        single<UserRepository> { UserRepositoryImpl(get()) } // singleton
+    }
+
+    private val viewModels = module {
+        viewModelOf(::AuthViewModel)
+    }
 
     private val common = module {
         single { Gson() }

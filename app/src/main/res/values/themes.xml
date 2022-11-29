@@ -106,5 +106,12 @@
         <item name="textAllCaps">false</item>
     </style>
 
+    <style name="ButtonMilefWhite" parent="Theme.Melif">
+        <item name="android:background">@drawable/rounded_corner_white</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">14sp</item>
+        <item name="textAllCaps">false</item>
+    </style>
 
 </resources>
