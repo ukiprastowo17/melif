@@ -3,6 +3,7 @@ package com.binar.melif.data.repository
 import com.binar.melif.base.BaseRepository
 import com.binar.melif.base.wrapper.Resource
 import com.binar.melif.data.network.api.datasource.TvShowApiDataSource
+import com.binar.melif.data.network.api.model.FavoriteTv
 import com.binar.melif.data.network.api.model.TvShow
 
 
@@ -26,4 +27,6 @@ class TvShowRepositoryImpl(private val networkDataSource: TvShowApiDataSource): 
     override suspend fun getAiringTvList(): Resource<TvShow> {
         return doNetworkCall { networkDataSource.getAiringTv()  }
     }
+
+
 }

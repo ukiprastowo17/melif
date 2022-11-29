@@ -1,20 +1,13 @@
 package com.binar.melif.presentation.ui.splashscreen
 
 import android.content.Intent
+import android.content.pm.PackageInfo
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.CountDownTimer
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
-import com.binar.melif.base.BaseViewModelActivity
-import com.binar.melif.databinding.ActivityLandingPageBinding
 import com.binar.melif.databinding.ActivitySplashScreenBinding
-import com.binar.melif.di.ServiceLocator
-import com.binar.melif.presentation.ui.auth.AuthActivity
-import com.binar.melif.presentation.ui.main.MainActivity
 import com.binar.melif.presentation.ui.slider.LandingPageActivity
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class SplashScreenActivity : AppCompatActivity() {
@@ -33,6 +26,16 @@ class SplashScreenActivity : AppCompatActivity() {
 
 
         setTimerSplashScreen()
+
+        try {
+            val pInfo: PackageInfo = packageManager.getPackageInfo(packageName, 0)
+            val version = pInfo.versionName
+            binding.tvVersi.text = "Versi App : $version"
+        } catch (e: PackageManager.NameNotFoundException) {
+            e.printStackTrace()
+        }
+
+
 
     }
 

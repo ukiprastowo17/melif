@@ -11,14 +11,18 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import androidx.core.os.bundleOf
 import androidx.core.view.ViewCompat
 import androidx.core.view.isVisible
+import androidx.room.ColumnInfo
 import coil.load
 import com.binar.melif.BuildConfig
 import com.binar.melif.R
 import com.binar.melif.base.BaseViewModelActivity
 import com.binar.melif.base.wrapper.Resource
+import com.binar.melif.data.local.entity.FavoriteMovieEntity
 import com.binar.melif.data.network.api.model.MovieDetail
 import com.binar.melif.data.network.api.model.TvShowDetail
 import com.binar.melif.databinding.ActivityDetailBinding
+import com.binar.melif.presentation.ui.favorite.MovieFavActivity
+import com.binar.melif.presentation.ui.slider.LandingPageActivity
 import com.binar.melif.utils.Extensions
 import com.google.android.material.appbar.AppBarLayout
 import org.koin.core.parameter.parametersOf
@@ -128,6 +132,7 @@ class DetailActivity : BaseViewModelActivity<ActivityDetailBinding, DetailViewMo
                     showLoading()
                 }
                 is Resource.Success -> {
+
                     it.payload?.let { detailMovie ->
                         showDataMovie(detailMovie)
                     }
@@ -162,6 +167,8 @@ class DetailActivity : BaseViewModelActivity<ActivityDetailBinding, DetailViewMo
             tvErrorDetail.isVisible = false
             nestedScrollView.isVisible = true
             bindDataTvShow(dataTvShow)
+
+
         }
     }
     private fun showDataMovie(dataMovie: MovieDetail) {
@@ -173,8 +180,13 @@ class DetailActivity : BaseViewModelActivity<ActivityDetailBinding, DetailViewMo
         }
     }
 
+
+
     private fun bindDataTvShow(dataTvShow: TvShowDetail) {
+
+
         title = dataTvShow.name
+
         with(binding) {
             df.roundingMode = RoundingMode.CEILING
             ivHeaderDetail.load(BuildConfig.BASE_POSTER_IMG_URL + dataTvShow.backdropPath)
@@ -196,8 +208,29 @@ class DetailActivity : BaseViewModelActivity<ActivityDetailBinding, DetailViewMo
         }
     }
     private fun bindDataMovie(dataMovie: MovieDetail) {
+
+
+
         title = dataMovie.originalTitle
         with(binding) {
+            val data = dataMovie?.let { FavoriteMovieEntity(id = it.id, posterPath = it.posterPath, releaseDate=it.releaseDate, runtime= 0, title= it.originalTitle, voteAverage= it.voteAverage , voteCount=0, date=0) }
+//            viewModel.insertResult(data)
+
+            binding.ivLike.setOnClickListener {
+                Log.d("datamasu","ok")
+        if (data != null) {
+            Log.d("datamasu","ok")
+            viewModel.insertResult(data)
+        }
+            }
+
+            binding.imgPosterDetail.setOnClickListener {
+                val intent = Intent(this@DetailActivity, MovieFavActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+                finish()
+                }
+
             ivHeaderDetail.load(BuildConfig.BASE_POSTER_IMG_URL + dataMovie.backdropPath)
             imgPosterDetail.load(BuildConfig.BASE_POSTER_IMG_URL + dataMovie.posterPath)
             tvTitleDetail.text = dataMovie.originalTitle

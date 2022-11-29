@@ -1,7 +1,6 @@
 package com.binar.melif.presentation.ui.slider
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.view.isGone
 import androidx.core.view.isInvisible
@@ -11,7 +10,6 @@ import androidx.viewpager2.widget.ViewPager2
 import com.binar.melif.R
 import com.binar.melif.base.BaseViewModelActivity
 import com.binar.melif.databinding.ActivityLandingPageBinding
-import com.binar.melif.di.ServiceLocator
 import com.binar.melif.presentation.ui.auth.AuthActivity
 import com.binar.melif.presentation.ui.main.MainActivity
 import com.binar.melif.presentation.ui.slider.model.SliderData
@@ -89,7 +87,7 @@ class LandingPageActivity : BaseViewModelActivity<ActivityLandingPageBinding , S
             addFragment(
                 SliderFragment.newInstance(
                     SliderData(
-                        "Easy \nTo Use",
+                        getString(R.string.text_lp01),
                         "Membuat grup menjadi lebih mudah \nhanya dari ponsel Anda.",
                         R.drawable.lp01
                     )
@@ -98,7 +96,7 @@ class LandingPageActivity : BaseViewModelActivity<ActivityLandingPageBinding , S
             addFragment(
                 SliderFragment2.newInstance(
                     SliderData(
-                        "Fast & \nBest Solution",
+                        getString(R.string.text_lp02),
                         "Sebagai sebuah solusi yang cepat dan tepat. Anda juga bisa memberikan nama grup.",
                         R.drawable.lp02
                     )
@@ -107,9 +105,9 @@ class LandingPageActivity : BaseViewModelActivity<ActivityLandingPageBinding , S
             addFragment(
                 SliderFragment.newInstance(
                     SliderData(
-                        "Fast & \nBest Solution",
+                        getString(R.string.text_lp03),
                         "Sebagai sebuah solusi yang cepat dan tepat. Anda juga bisa memberikan nama grup.",
-                        R.drawable.lp02
+                        R.drawable.lp3
                     )
                 )
             )

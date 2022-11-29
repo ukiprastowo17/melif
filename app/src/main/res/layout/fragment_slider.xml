@@ -25,10 +25,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
+        android:layout_marginRight="45dp"
         android:textColor="#FFB43A"
-        android:textSize="64sp"
+        android:textSize="48sp"
         android:textStyle="bold"
-        android:textAllCaps="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/gl_guideline"
         tools:text="Title" />

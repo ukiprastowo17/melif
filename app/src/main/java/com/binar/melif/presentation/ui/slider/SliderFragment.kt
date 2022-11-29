@@ -13,7 +13,6 @@ import com.binar.melif.presentation.ui.slider.model.SliderData
 
 class SliderFragment : Fragment() {
     private lateinit var binding: FragmentSliderBinding
-    private lateinit var binding2: FragmentSlider2Binding
 
     private var sliderData: SliderData? = null
 
