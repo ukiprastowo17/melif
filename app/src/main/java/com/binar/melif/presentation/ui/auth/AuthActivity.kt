@@ -10,6 +10,7 @@ import com.binar.melif.BuildConfig
 import com.binar.melif.base.BaseViewModelActivity
 import com.binar.melif.base.wrapper.Resource
 import com.binar.melif.databinding.ActivityAuthBinding
+import com.binar.melif.databinding.DialogAuthBinding
 
 import com.binar.melif.presentation.ui.main.MainActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -20,7 +21,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class AuthActivity :
-    BaseViewModelActivity<ActivityAuthBinding, AuthViewModel>(ActivityAuthBinding::inflate) {
+    BaseViewModelActivity<DialogAuthBinding, AuthViewModel>(DialogAuthBinding::inflate) {
 
     private val TAG = AuthActivity::class.java.simpleName
 
@@ -84,7 +85,7 @@ class AuthActivity :
     }
 
     private fun showLoadingState(isShow: Boolean) {
-        binding.pbLogin.isVisible = isShow
+//        binding.pbLogin.isVisible = isShow
     }
 
     private fun firebaseAuthWithGoogle(idToken: String) {

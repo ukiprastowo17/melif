@@ -33,6 +33,12 @@ interface MelifApiService {
         @Query("page") page: Int = 1
     ): TvShow
 
+    @GET("tv/top_rated")
+    suspend fun getTopRatedTv2(
+        @Query("api_key") api_key: String = BuildConfig.API_KEY,
+        @Query("page") page: Int = 1
+    ): MovieModel
+
     @GET("tv/popular")
     suspend fun getPopularTv(
         @Query("api_key") api_key: String = BuildConfig.API_KEY,

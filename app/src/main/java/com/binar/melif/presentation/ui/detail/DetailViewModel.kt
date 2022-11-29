@@ -17,23 +17,24 @@ class DetailViewModel(private val repository: Repository, val intentData: Bundle
     val detailResultTvShow = MutableLiveData<Resource<TvShowDetail>>()
     val detailResultMovie = MutableLiveData<Resource<MovieDetail>>()
 
-    fun fetchDetailTvShow(){
-        val tvId = intentData.getString(DetailActivity.EXTRAS_ID)
-        Log.d("idMove",tvId.toString())
-        tvId.let {
-            viewModelScope.launch(Dispatchers.IO) {
-                detailResultTvShow.postValue(Resource.Loading())
-                detailResultTvShow.postValue(repository.getDetailTvShow(tvId.toString()))
+    fun fetchDetail(){
+        val Id = intentData.getString(DetailActivity.EXTRAS_ID)
+        val dataType = intentData.getString(DetailActivity.EXTRA_TYPE)
+
+
+            Id.let {
+                viewModelScope.launch(Dispatchers.IO) {
+                    detailResultTvShow.postValue(Resource.Loading())
+
+                    if (dataType == "TV") {
+                        detailResultTvShow.postValue(repository.getDetailTvShow(Id.toString()))
+                    } else {
+                        detailResultMovie.postValue(repository.getDetailMovie(Id.toString()))
+                    }
+                }
             }
-        }
+
+
     }
-    fun fetchDetailMovie(movieId: String){
-        //val movieId = intentData.getString(DetailActivity.EXTRA_TYPE)
-        movieId.let {
-            viewModelScope.launch(Dispatchers.IO) {
-                detailResultMovie.postValue(Resource.Loading())
-                detailResultMovie.postValue(repository.getDetailMovie(movieId))
-            }
-        }
-    }
+
 }

@@ -20,8 +20,8 @@ class MovieViewModel(private val MovieRepository: MovieRepository) : ViewModel()
             val sectionPopularList = MovieRepository.getPopularMovie()
             val sectionTopRatedList = MovieRepository.getTopRatedMovie()
 
-            val MovieItems = mutableListOf<MovieItem>()
-            MovieItems.apply {
+            val movieItems = mutableListOf<MovieItem>()
+            movieItems.apply {
                 nowPlaying.payload?.results.let {
                     add(MovieItem.MovieHeaderItem(it?.random()))
                 }
@@ -36,8 +36,8 @@ class MovieViewModel(private val MovieRepository: MovieRepository) : ViewModel()
                 }
             }
 
-            if (MovieItems.isNotEmpty()) {
-                movieResult.postValue(Resource.Success(MovieItems))
+            if (movieItems.isNotEmpty()) {
+                movieResult.postValue(Resource.Success(movieItems))
             } else {
                 movieResult.postValue(Resource.Empty())
             }

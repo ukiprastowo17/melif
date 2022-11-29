@@ -47,7 +47,8 @@ class ThreadFormBottomSheet :
         if (checkFormValidation()) {
             val title = binding.etThreadTitle.text.toString()
             val body = binding.etThreadBody.text.toString()
-            viewModel.createThread(title, body)
+        viewModel.createThread(title, body)
+
         }
     }
 

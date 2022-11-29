@@ -7,14 +7,14 @@ import androidx.lifecycle.viewModelScope
 import com.binar.melif.base.wrapper.Resource
 import com.binar.melif.data.firebase.model.SubThreadItem
 import com.binar.melif.data.firebase.model.ThreadItem
-import com.binar.melif.data.repository.ThreadRepository
+import com.binar.melif.data.repository.ChatRepository
 import com.binar.melif.data.repository.UserRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
 class ThreadDetailViewModel(
-    private val threadRepository: ThreadRepository,
+    private val threadRepository: ChatRepository,
     private val userRepository: UserRepository,
     private val intentData: Bundle
 ) : ViewModel() {

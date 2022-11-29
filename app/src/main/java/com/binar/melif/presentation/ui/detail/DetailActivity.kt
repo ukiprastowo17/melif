@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -76,13 +77,10 @@ class DetailActivity : BaseViewModelActivity<ActivityDetailBinding, DetailViewMo
        // viewModel.fetchDetailTvShow("1399")
 //        viewModel.fetchDetailMovie("505642")
 
-        viewModel.fetchDetailTvShow()
 
-      if (EXTRA_TYPE == "TV"){
-//          viewModel.fetchDetailTvShow(EXTRAS_ID)
-      }else{
-//          viewModel.fetchDetailMovie("505642")
-      }
+
+        viewModel.fetchDetail()
+
 
 
     }

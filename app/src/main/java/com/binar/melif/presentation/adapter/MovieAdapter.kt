@@ -8,6 +8,7 @@ import coil.load
 import com.binar.melif.BuildConfig
 import com.binar.melif.databinding.ItemHeaderTvShowBinding
 import com.binar.melif.databinding.ItemSectionTvShowBinding
+import com.binar.melif.presentation.ui.detail.DetailActivity
 
 class MovieAdapter(var listener: ((MovieItem) -> Unit)? = null)
     : RecyclerView.Adapter<ViewHolder>() {
@@ -21,8 +22,8 @@ class MovieAdapter(var listener: ((MovieItem) -> Unit)? = null)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return if (viewType == TV_SHOW_TYPE_HEADER) {
-            HomeHeaderItemViewHolder(
+        return if (viewType == MOVIE_TYPE_HEADER) {
+            HomeHeaderMovieItemViewHolder(
                 ItemHeaderTvShowBinding.inflate(
                     LayoutInflater.from(parent.context),
                     parent,
@@ -30,7 +31,7 @@ class MovieAdapter(var listener: ((MovieItem) -> Unit)? = null)
                 )
             )
         } else {
-            HomeSectionItemViewHolder(
+            HomeSectionMovieItemViewHolder(
                 ItemSectionTvShowBinding.inflate(
                     LayoutInflater.from(parent.context),
                     parent,
@@ -71,7 +72,7 @@ class HomeSectionMovieItemViewHolder(private val binding: ItemSectionTvShowBindi
 
     private val adapter: MovieListAdapter by lazy {
         MovieListAdapter {
-           // AnimeDetailActivity.startActivity(itemView.context, it.animeId)
+            DetailActivity.startActivity(itemView.context, it.id.toString(), "MOVIE")
         }
     }
 

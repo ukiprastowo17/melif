@@ -71,7 +71,6 @@ class MainActivity : BaseViewModelActivity<ActivityMainBinding, MainViewModel>(A
     private fun setupNav(){
         val navController: NavController =
             Navigation.findNavController(this, R.id.activity_main_nav_host_fragment)
-
         setupWithNavController(binding.bmvMain, navController)
     }
 

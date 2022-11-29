@@ -2,18 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/fragment_movie"
+        android:id="@+id/movieFragment"
         android:icon="@drawable/videography"
         android:iconTint="@color/color_master"
-        android:title="@string/title_fragment_movie"/>
+        android:title="Movie"/>
 
     <item
-        android:id="@+id/fragment_tv"
+        android:id="@+id/tvShowFragment"
         android:icon="@drawable/ic_thread"
-        android:title="@string/title_fragment_tv"/>
+        android:title="TV Show"/>
 
     <item
-        android:id="@+id/fragment_thread"
+        android:id="@+id/threadFragment"
         android:icon="@drawable/ic_thread"
         android:title="@string/title_fragment_thread"/>
 

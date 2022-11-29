@@ -5,14 +5,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.binar.melif.base.wrapper.Resource
 import com.binar.melif.data.firebase.model.ThreadItem
-import com.binar.melif.data.repository.ThreadRepository
+import com.binar.melif.data.repository.ChatRepository
 import com.binar.melif.data.repository.UserRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
 class ThreadFormViewModel(
-    private val threadRepository: ThreadRepository,
+    private val chatRepository: ChatRepository,
     private val userRepository: UserRepository
 ) : ViewModel() {
 
@@ -21,7 +21,7 @@ class ThreadFormViewModel(
     fun createThread(title: String, content: String) {
         createThreadResult.postValue(Resource.Loading())
         viewModelScope.launch(Dispatchers.IO) {
-            createThreadResult.postValue(threadRepository.createThread(generateThreadItem(title,content)))
+            createThreadResult.postValue(chatRepository.createThread(generateThreadItem(title,content)))
         }
     }
 

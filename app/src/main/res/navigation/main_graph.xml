@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_graph"
-    app:startDestination="@id/movieFragment2">
+    app:startDestination="@id/movieFragment">
     <fragment
-        android:id="@+id/movieFragment2"
+        android:id="@+id/movieFragment"
         android:name="com.binar.melif.presentation.ui.movie.MovieFragment"
         android:label="fragment_movie"
         tools:layout="@layout/fragment_movie" />
@@ -14,4 +14,10 @@
         android:name="com.binar.melif.presentation.ui.tvshow.TvShowFragment"
         android:label="fragment_tv_show"
         tools:layout="@layout/fragment_tv_show" />
+    <fragment
+        android:id="@+id/threadFragment"
+        android:name="com.binar.melif.presentation.ui.thread.ThreadFragment"
+        android:label="fragment_thread"
+        tools:layout="@layout/fragment_thread" />
+
 </navigation>

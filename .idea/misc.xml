@@ -3,9 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/muham/AndroidStudioProjects/melif/app/src/main/res/drawable/bg_dialog.xml" value="0.1825" />
+        <entry key="..\:/Users/muham/AndroidStudioProjects/melif/app/src/main/res/drawable/rounded_corner.xml" value="0.1825" />
+        <entry key="..\:/Users/muham/AndroidStudioProjects/melif/app/src/main/res/drawable/rounded_corner_white.xml" value="0.1825" />
+        <entry key="..\:/Users/muham/AndroidStudioProjects/melif/app/src/main/res/layout/activity_about.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/muham/AndroidStudioProjects/melif/app/src/main/res/layout/activity_auth.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/muham/AndroidStudioProjects/melif/app/src/main/res/layout/dialog_auth.xml" value="0.264" />
+        <entry key="..\:/Users/muham/AndroidStudioProjects/melif/app/src/main/res/layout/fragment_slider.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/muham/AndroidStudioProjects/melif/app/src/main/res/layout/fragment_slider2.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/muham/AndroidStudioProjects/melif/app/src/main/res/menu/menu_main.xml" value="0.27447916666666666" />
         <entry key="app/src/main/res/drawable-v24/bg_edit_text_shadow.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable-v24/ic_baseline.xml" value="0.105" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.178" />
         <entry key="app/src/main/res/drawable/bg_edit_text_shadow.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/bg_gradient_bottom_to_top.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.178" />
         <entry key="app/src/main/res/drawable/ic_logout.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_more.xml" value="0.105" />
@@ -16,20 +27,27 @@
         <entry key="app/src/main/res/layout/activity_auth.xml" value="0.231722958529286" />
         <entry key="app/src/main/res/layout/activity_detail.xml" value="0.1085934159897392" />
         <entry key="app/src/main/res/layout/activity_landing_page.xml" value="0.10036926269531249" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1085934159897392" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2974910394265233" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_thread_detail.xml" value="0.1085934159897392" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.1085934159897392" />
+        <entry key="app/src/main/res/layout/dialog_auth.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.231722958529286" />
+        <entry key="app/src/main/res/layout/fragment_movie.xml" value="0.11324697033012955" />
         <entry key="app/src/main/res/layout/fragment_slider.xml" value="0.1859245826348171" />
         <entry key="app/src/main/res/layout/fragment_slider2.xml" value="0.1085934159897392" />
         <entry key="app/src/main/res/layout/fragment_thread.xml" value="0.1085934159897392" />
         <entry key="app/src/main/res/layout/fragment_thread_form_bottom_sheet.xml" value="0.1085934159897392" />
+        <entry key="app/src/main/res/layout/fragment_tv_show.xml" value="0.231722958529286" />
         <entry key="app/src/main/res/layout/ic_add.xml" value="0.1085934159897392" />
+        <entry key="app/src/main/res/layout/item_header_movie.xml" value="0.231722958529286" />
+        <entry key="app/src/main/res/layout/item_header_tv_show.xml" value="0.231722958529286" />
         <entry key="app/src/main/res/layout/item_movie_poster.xml" value="0.231722958529286" />
         <entry key="app/src/main/res/layout/item_section_movie.xml" value="0.231722958529286" />
         <entry key="app/src/main/res/layout/item_sub_thread.xml" value="0.1085934159897392" />
         <entry key="app/src/main/res/layout/item_thread.xml" value="0.1085934159897392" />
+        <entry key="app/src/main/res/layout/item_tv_show_poster.xml" value="0.231722958529286" />
+        <entry key="app/src/main/res/layout/item_tv_show_poster_grid.xml" value="0.231722958529286" />
         <entry key="app/src/main/res/menu/menu_bottom_main.xml" value="0.231722958529286" />
         <entry key="app/src/main/res/menu/menu_home.xml" value="0.231722958529286" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.231722958529286" />

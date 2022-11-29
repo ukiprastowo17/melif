@@ -2,11 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/bg_dialog"
-    android:paddingVertical="60dp"
-    tools:context=".auth.dialog.AuthDialog">
+    android:paddingVertical="60dp">
+
 
     <TextView
         android:id="@+id/tv_login_title"
@@ -16,6 +16,7 @@
         android:text="@string/text_hello"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,7 +34,7 @@
         app:layout_constraintTop_toBottomOf="@id/tv_login_title" />
 
     <LinearLayout
-        android:id="@+id/ll_login_button"
+        android:id="@+id/btnSignInGoogle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"

@@ -40,4 +40,18 @@
     <string name="text_empty_data_subthread">No one reply in this thread :(</string>
     <string name="text_overview_dummy">Queen Ramonda, Shuri, M’Baku, Okoye and the Dora Milaje fight to protect their nation from intervening world powers in the wake of King T’Challa’s death. As the Wakandans strive to embrace their next chapter, the heroes must band together with the help of War Dog Nakia and Everett Ross and forge a new path for the kingdom of Wakanda.</string>
     <string name="text_overview">Overview</string>
+
+    <string name="text_movie_list">Movie List</string>
+
+    <string name="popular_movie_section">Popular Movie</string>
+    <string name="text_new_playing">Now Playing Movie</string>
+    <string name="top_rated_movie_section">Top Rated Movie</string>
+
+    <string name="popular_tv_section">Popular Tv</string>
+    <string name="latest_tv_section">Latest TV</string>
+    <string name="top_rated_tv_section">Top Rated TV</string>
+
+    <string name="text_tvshow_list">Tv Show List</string>
+    <string name="text_new_release">New Release</string>
+
 </resources>

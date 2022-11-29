@@ -1,10 +1,7 @@
 package com.binar.melif.di
 
 import com.binar.melif.BuildConfig
-import com.binar.melif.data.firebase.FirebaseThreadDataSource
-import com.binar.melif.data.firebase.FirebaseUserAuthDataSourceImpl
-import com.binar.melif.data.firebase.ThreadDataSource
-import com.binar.melif.data.firebase.UserAuthDataSource
+import com.binar.melif.data.firebase.*
 import com.binar.melif.data.network.api.datasource.*
 import com.binar.melif.data.network.api.service.MelifApiService
 import com.binar.melif.data.repository.*
@@ -16,12 +13,15 @@ import com.binar.melif.presentation.ui.auth.AuthViewModel
 import com.binar.melif.presentation.ui.main.MainViewModel
 import com.binar.melif.presentation.ui.movie.MovieViewModel
 import com.binar.melif.presentation.ui.thread.ThreadViewModel
+import com.binar.melif.presentation.ui.threaddetail.ThreadDetailViewModel
 import com.binar.melif.presentation.ui.threadform.ThreadFormViewModel
 import com.binar.melif.presentation.ui.tvshow.TvShowViewModel
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -44,21 +44,20 @@ object AppModules {
 
     private val dataSource = module {
         single<MelifApiDataSource> { MelifApiDataSourceImpl(get()) } // singleton
-        single<UserAuthDataSource> { FirebaseUserAuthDataSourceImpl(get()) }
-        single<ThreadDataSource> { FirebaseThreadDataSource(get()) }
-        single<TvShowApiDataSource> { TvShowDataSourceImpl(get()) }
-        single<MovieApiDataSource> { MovieDataSourceImpl(get()) }
+        single<UserAuthDataSource> { FirebaseUserAuthDataSourceImpl(get()) } // singleton
+        single<TvShowApiDataSource> { TvShowDataSourceImpl(get()) } // singleton
+        single<MovieApiDataSource> { MovieDataSourceImpl(get()) } // singleton
+        single<ChatDataSource> { FirebaseChatDataSource(get()) } // singleton
     }
 
 
     private val repository = module {
         single<Repository> { RepositoryImpl(get()) } // singleton
-        single<UserRepository> { UserRepositoryImpl(get()) }
-        single<ThreadRepository> { ThreadRepositoryImpl(get()) }
-        single<TvShowRepository> { TvShowRepositoryImpl(get()) }
-        single<MovieRepository> { MovieRepositoryImpl(get()) }
+        single<UserRepository> { UserRepositoryImpl(get()) } // singleton
+        single<TvShowRepository> { TvShowRepositoryImpl(get()) } // singleton
+        single<MovieRepository> { MovieRepositoryImpl(get()) } // singleton
+        single<ChatRepository> { ChatRepositoryImpl(get()) } // singleton
     }
-
 
 
     private val viewModels = module {
@@ -67,8 +66,10 @@ object AppModules {
         viewModelOf(::MainViewModel)
         viewModelOf(::AuthViewModel)
         viewModelOf(::ThreadViewModel)
+        viewModelOf(::ThreadFormViewModel)
         viewModel { TvShowViewModel(get()) }
         viewModel { MovieViewModel(get()) }
+        viewModel { params -> ThreadDetailViewModel(get(), get(), params.get()) }
     }
 
     private val adapter = module {
@@ -91,6 +92,7 @@ object AppModules {
                     .build()
             )
         }
+        single { Firebase.database }
     }
 
 }
