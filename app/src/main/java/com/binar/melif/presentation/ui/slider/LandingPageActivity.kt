@@ -10,6 +10,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.binar.melif.R
 import com.binar.melif.databinding.ActivityLandingPageBinding
 import com.binar.melif.di.ServiceLocator
+import com.binar.melif.presentation.ui.auth.AuthActivity
 import com.binar.melif.presentation.ui.slider.model.SliderData
 import com.binar.melif.presentation.ui.slider.utils.ViewPagerAdapter
 import com.binar.projectgroupmakerbinar.ui.slider.utils.getNextIndex
@@ -70,10 +71,10 @@ class LandingPageActivity : AppCompatActivity() {
     }
 
     private fun navigateToMenuFragment(){
-//        ServiceLocator.providePreferenceDataSource(this@LandingPageActivity).setSkipIntro(true)
-//        val i = Intent(this@LandingPageActivity, HomeActivity::class.java)
-//        startActivity(i)
-//        finish()
+        ServiceLocator.providePreferenceDataSource(this@LandingPageActivity).setSkipIntro(true)
+        val i = Intent(this@LandingPageActivity, AuthActivity::class.java)
+        startActivity(i)
+        finish()
     }
 
     private fun initAdapter() {
