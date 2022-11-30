@@ -8,6 +8,7 @@ import java.util.*
 data class SubThreadItem(
     var id : String? = "",
     val creator: User? = null,
-    val content: String = ""
+    val content: String = "",
+    val date: String = ""
 )
 

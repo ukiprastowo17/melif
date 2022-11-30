@@ -52,6 +52,7 @@ class SubThreadListAdapter(
                 binding.lyR.visibility = View.VISIBLE
                 binding.tvContentThreadR.text = item.content
                 binding.tvNameThreadStarterR.text = item.creator?.displayName
+                binding.tvDateThreadStarterR.text = item.date
                 binding.tvTextOwnerR.isVisible = data?.creator?.displayName == item.creator?.displayName
 
             }else{
@@ -65,6 +66,7 @@ class SubThreadListAdapter(
                 binding.lyR.visibility = View.GONE
                 binding.tvContentThreadR.text = item.content
                 binding.tvContentThread.text = item.content
+                binding.tvDateThreadStarter.text = item.date
                 binding.tvNameThreadStarter.text = item.creator?.displayName
                 binding.tvTextOwner.isVisible = data?.creator?.displayName == item.creator?.displayName
             }

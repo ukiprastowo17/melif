@@ -89,7 +89,9 @@ class LandingPageActivity : BaseViewModelActivity<ActivityLandingPageBinding , S
                 SliderFragment.newInstance(
                     SliderData(
                         getString(R.string.text_lp01),
-                        "Membuat grup menjadi lebih mudah \nhanya dari ponsel Anda.",
+                        "With Melif App and only with us, you will get\n" +
+                                "all the information you need about your favorite\n" +
+                                "movies or tv shows",
                         R.drawable.lp01
                     )
                 )
@@ -98,7 +100,8 @@ class LandingPageActivity : BaseViewModelActivity<ActivityLandingPageBinding , S
                 SliderFragment2.newInstance(
                     SliderData(
                         getString(R.string.text_lp02),
-                        "Sebagai sebuah solusi yang cepat dan tepat. Anda juga bisa memberikan nama grup.",
+                        "Enjoy the best catalogue movie and tv show \n" +
+                                "that ever existed",
                         R.drawable.lp02
                     )
                 )
@@ -107,7 +110,9 @@ class LandingPageActivity : BaseViewModelActivity<ActivityLandingPageBinding , S
                 SliderFragment.newInstance(
                     SliderData(
                         getString(R.string.text_lp03),
-                        "Sebagai sebuah solusi yang cepat dan tepat. Anda juga bisa memberikan nama grup.",
+                        "Come to us, and we will provide to you most\n" +
+                                "complete information and forum feature just\n" +
+                                "for you",
                         R.drawable.lp3
                     )
                 )

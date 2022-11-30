@@ -11,6 +11,8 @@ import com.binar.melif.data.repository.ChatRepository
 import com.binar.melif.data.repository.UserRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class ThreadDetailViewModel(
@@ -38,7 +40,12 @@ class ThreadDetailViewModel(
     }
 
     private fun generateSubThread(content: String): SubThreadItem {
-        return SubThreadItem(content = content, creator = userRepository.getCurrentUser())
+        val sdf = SimpleDateFormat("dd MMM yyyy hh:mm:ss")
+        val currentDate = sdf.format(Date())
+        return SubThreadItem(content = content,
+            creator = userRepository.getCurrentUser(),
+            date = currentDate.toString()
+        )
     }
 
     fun getCurrentUser() = userRepository.getCurrentUser()
