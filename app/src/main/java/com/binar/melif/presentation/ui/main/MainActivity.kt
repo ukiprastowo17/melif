@@ -17,6 +17,7 @@ import androidx.navigation.ui.NavigationUI.setupWithNavController
 import com.binar.melif.R
 import com.binar.melif.base.BaseViewModelActivity
 import com.binar.melif.databinding.ActivityMainBinding
+import com.binar.melif.presentation.ui.about.AboutActivity
 import com.binar.melif.presentation.ui.auth.AuthActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -38,6 +39,9 @@ class MainActivity : BaseViewModelActivity<ActivityMainBinding, MainViewModel>(A
         when (item.itemId) {
             R.id.menu_logout -> {
                 showDialogLogout()
+            }
+            R.id.menu_info -> {
+                startActivity(Intent(this, AboutActivity::class.java))
             }
         }
         return super.onOptionsItemSelected(item)

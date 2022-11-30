@@ -9,7 +9,7 @@ interface TvDao {
     suspend fun getAllTvs(): List<FavoriteTvEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertTv(tvEntity: FavoriteTvEntity)
+    suspend fun insertTv(tvEntity: FavoriteTvEntity) : Long
 
     @Delete
     suspend fun deleteTv(tvEntity: FavoriteTvEntity)

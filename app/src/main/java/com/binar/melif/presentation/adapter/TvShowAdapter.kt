@@ -1,6 +1,6 @@
 package com.binar.melif.presentation.adapter
 
-import android.util.Log
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -10,9 +10,10 @@ import com.binar.melif.BuildConfig
 import com.binar.melif.databinding.ItemHeaderTvShowBinding
 import com.binar.melif.databinding.ItemSectionTvShowBinding
 import com.binar.melif.presentation.ui.detail.DetailActivity
+import com.binar.melif.presentation.ui.favorite.TvFavActivity
 
 
-class TvShowAdapter(var listener: ((TvShowItem) -> Unit)? = null)
+class TvShowAdapter( var listener: ((TvShowItem) -> Unit)? = null)
     : RecyclerView.Adapter<ViewHolder>() {
 
     val data = mutableListOf<TvShowItem>()
@@ -59,14 +60,22 @@ class TvShowAdapter(var listener: ((TvShowItem) -> Unit)? = null)
 }
 
 
-class HomeHeaderItemViewHolder(private val binding: ItemHeaderTvShowBinding) :
+class HomeHeaderItemViewHolder( private val binding: ItemHeaderTvShowBinding) :
     ViewHolder(binding.root) {
 
 
 
     fun bind(item: TvShowItem.TvShowHeaderItem) {
         binding.ivHeaderTvshow.load(BuildConfig.BASE_POSTER_IMG_URL + item.data?.posterPath)
-        binding.tvTitleTvshow.text = item.data?.name
+        binding.tvTitleMovie.text = item.data?.name
+
+
+        binding.ivListLike.setOnClickListener {
+
+            val intent = Intent( itemView.context, TvFavActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            itemView.context.startActivity(intent)
+        }
 
     }
 

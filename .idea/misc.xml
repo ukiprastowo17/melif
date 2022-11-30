@@ -29,7 +29,7 @@
         <entry key="app/src/main/res/layout/activity_about.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_auth.xml" value="0.231722958529286" />
         <entry key="app/src/main/res/layout/activity_detail.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_fav.xml" value="0.231722958529286" />
+        <entry key="app/src/main/res/layout/activity_fav.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_landing_page.xml" value="0.10036926269531249" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2974910394265233" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.1" />
@@ -49,6 +49,7 @@
         <entry key="app/src/main/res/layout/item_movie_fav.xml" value="0.231722958529286" />
         <entry key="app/src/main/res/layout/item_movie_poster.xml" value="0.231722958529286" />
         <entry key="app/src/main/res/layout/item_section_movie.xml" value="0.231722958529286" />
+        <entry key="app/src/main/res/layout/item_section_tv_show.xml" value="0.231722958529286" />
         <entry key="app/src/main/res/layout/item_sub_thread.xml" value="0.1085934159897392" />
         <entry key="app/src/main/res/layout/item_thread.xml" value="0.1085934159897392" />
         <entry key="app/src/main/res/layout/item_tv_show_poster.xml" value="0.231722958529286" />

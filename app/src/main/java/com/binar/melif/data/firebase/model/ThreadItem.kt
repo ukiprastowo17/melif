@@ -11,6 +11,8 @@ data class ThreadItem(
     var id: String = "",
     val creator: User? = null,
     val title: String = "",
-    val content: String = ""
+    val content: String = "",
+    val date: String = ""
+
 ) : Parcelable
 

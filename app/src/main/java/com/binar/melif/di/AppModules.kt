@@ -7,6 +7,8 @@ import com.binar.melif.data.network.api.datasource.*
 import com.binar.melif.data.network.api.service.MelifApiService
 import com.binar.melif.data.repository.*
 import com.binar.melif.presentation.adapter.MovieAdapter
+import com.binar.melif.presentation.adapter.MovieFavAdapter
+import com.binar.melif.presentation.adapter.TvFavAdapter
 import com.binar.melif.presentation.adapter.TvShowAdapter
 import com.binar.melif.presentation.ui.detail.DetailViewModel
 import com.binar.melif.presentation.ui.slider.SlideViewModel
@@ -39,6 +41,7 @@ object AppModules {
 
     private val dblocal = module {
         single { AppDatabase.getInstance(get()).movieDao() }  // singleton
+        single { AppDatabase.getInstance(get()).tvDao() }  // singleton
     }
 
     private val networkModule = module {
@@ -53,7 +56,7 @@ object AppModules {
         single<TvShowApiDataSource> { TvShowDataSourceImpl(get()) } // singleton
         single<MovieApiDataSource> { MovieDataSourceImpl(get()) } // singleton
         single<ChatDataSource> { FirebaseChatDataSource(get()) } // singleton
-        single<MovieFavDataSource> { MovieFavDataSourceImpl(get()) } // singleton
+        single<FavDataSource> { FavDataSourceImpl(get(), get()) } // singleton
     }
 
 
@@ -82,6 +85,8 @@ object AppModules {
     private val adapter = module {
         factory { TvShowAdapter() }
         factory { MovieAdapter() }
+        factory { MovieFavAdapter(get()) }
+        factory { TvFavAdapter(get()) }
     }
 
 

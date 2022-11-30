@@ -24,6 +24,7 @@ import com.binar.melif.databinding.ActivityDetailBinding
 import com.binar.melif.presentation.ui.favorite.MovieFavActivity
 import com.binar.melif.presentation.ui.slider.LandingPageActivity
 import com.binar.melif.utils.Extensions
+import com.borabor.movieapp.data.local.entity.FavoriteTvEntity
 import com.google.android.material.appbar.AppBarLayout
 import org.koin.core.parameter.parametersOf
 import java.math.RoundingMode
@@ -207,6 +208,23 @@ class DetailActivity : BaseViewModelActivity<ActivityDetailBinding, DetailViewMo
         title = dataTvShow.name
 
         with(binding) {
+
+            val data = dataTvShow?.let { FavoriteTvEntity(id = it.id, posterPath = it.posterPath, firstAirDate=it.firstAirDate, episodeRunTime= 0, name = it.name, voteAverage= it.voteAverage , voteCount=0, date=0) }
+
+            binding.ivLike.setOnClickListener {
+                if (data != null) {
+                    viewModel.insertResultTv(data)
+                }
+            }
+
+            binding.ivShare.setOnClickListener {
+                val intent= Intent()
+                intent.action=Intent.ACTION_SEND
+                intent.putExtra(Intent.EXTRA_TEXT,"Ayo Tontoh Tv Show " + dataTvShow.name + " dengan Rating " + dataTvShow.voteAverage.toString() )
+                intent.type="text/plain"
+                startActivity(Intent.createChooser(intent,"Share To:"))
+            }
+
             df.roundingMode = RoundingMode.CEILING
             ivHeaderDetail.load(BuildConfig.BASE_POSTER_IMG_URL + dataTvShow.backdropPath)
             imgPosterDetail.load(BuildConfig.BASE_POSTER_IMG_URL + dataTvShow.posterPath)
@@ -235,23 +253,23 @@ class DetailActivity : BaseViewModelActivity<ActivityDetailBinding, DetailViewMo
 
         title = dataMovie.originalTitle
         with(binding) {
-            val data = dataMovie?.let { FavoriteMovieEntity(id = it.id, posterPath = it.posterPath, releaseDate=it.releaseDate, runtime= 0, title= it.originalTitle, voteAverage= it.voteAverage , voteCount=0, date=0) }
-//            viewModel.insertResult(data)
+            val data = dataMovie?.let { FavoriteMovieEntity(id = it.id, posterPath = it.posterPath, releaseDate=it.releaseDate, runtime= it.runtime, title= it.originalTitle, voteAverage= it.voteAverage , voteCount= it.voteCount, date=0) }
 
             binding.ivLike.setOnClickListener {
-                Log.d("datamasu","ok")
         if (data != null) {
-            Log.d("datamasu","ok")
-            viewModel.insertResult(data)
+            viewModel.insertResultMovie(data)
         }
             }
 
-            binding.imgPosterDetail.setOnClickListener {
-                val intent = Intent(this@DetailActivity, MovieFavActivity::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                startActivity(intent)
-                finish()
-                }
+            binding.ivShare.setOnClickListener {
+                val intent= Intent()
+                intent.action=Intent.ACTION_SEND
+                intent.putExtra(Intent.EXTRA_TEXT,"Ayo Tontoh Film " + dataMovie.originalTitle + " dengan Rating " + dataMovie.voteAverage.toString() )
+                intent.type="text/plain"
+                startActivity(Intent.createChooser(intent,"Share To:"))
+            }
+
+
 
             ivHeaderDetail.load(BuildConfig.BASE_POSTER_IMG_URL + dataMovie.backdropPath)
             imgPosterDetail.load(BuildConfig.BASE_POSTER_IMG_URL + dataMovie.posterPath)

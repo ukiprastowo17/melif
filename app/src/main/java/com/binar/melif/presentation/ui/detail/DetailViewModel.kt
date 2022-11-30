@@ -11,6 +11,7 @@ import com.binar.melif.data.network.api.model.MelifVideo
 import com.binar.melif.data.network.api.model.MovieDetail
 import com.binar.melif.data.network.api.model.TvShowDetail
 import com.binar.melif.data.repository.Repository
+import com.borabor.movieapp.data.local.entity.FavoriteTvEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -23,11 +24,25 @@ class DetailViewModel(private val repository: Repository, val intentData: Bundle
     private val videoMelif = MutableLiveData<Resource<MelifVideo>>()
     val videos: MutableLiveData<Resource<MelifVideo>> = videoMelif
 
-    fun insertResult(resultData: FavoriteMovieEntity) {
+    fun insertResultMovie(resultData: FavoriteMovieEntity) {
         viewModelScope.launch(Dispatchers.IO) {
             insertResult.postValue(Resource.Loading())
             delay(1000)
-            insertResult.postValue(repository.insertMovieFav(resultData))
+
+                insertResult.postValue(repository.insertMovieFav(resultData))
+
+
+        }
+    }
+
+    fun insertResultTv(resultData: FavoriteTvEntity) {
+        viewModelScope.launch(Dispatchers.IO) {
+            insertResult.postValue(Resource.Loading())
+            delay(1000)
+
+                insertResult.postValue(repository.insertTvFav(resultData))
+
+
         }
     }
 

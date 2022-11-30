@@ -1,5 +1,6 @@
 package com.binar.melif.presentation.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -9,6 +10,7 @@ import com.binar.melif.BuildConfig
 import com.binar.melif.databinding.ItemHeaderTvShowBinding
 import com.binar.melif.databinding.ItemSectionTvShowBinding
 import com.binar.melif.presentation.ui.detail.DetailActivity
+import com.binar.melif.presentation.ui.favorite.MovieFavActivity
 
 class MovieAdapter(var listener: ((MovieItem) -> Unit)? = null)
     : RecyclerView.Adapter<ViewHolder>() {
@@ -62,7 +64,12 @@ class HomeHeaderMovieItemViewHolder(private val binding: ItemHeaderTvShowBinding
 
     fun bind(item: MovieItem.MovieHeaderItem) {
         binding.ivHeaderTvshow.load(BuildConfig.BASE_POSTER_IMG_URL + item.data?.posterPath)
-        binding.tvTitleTvshow.text = item.data?.name
+        binding.tvTitleMovie.text = item.data?.name
+        binding.ivListLike.setOnClickListener {
+            val intent = Intent( itemView.context, MovieFavActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            itemView.context.startActivity(intent)
+        }
     }
 
 }

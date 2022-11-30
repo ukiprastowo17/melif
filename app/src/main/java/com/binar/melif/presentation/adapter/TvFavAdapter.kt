@@ -5,15 +5,16 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.binar.melif.data.local.entity.FavoriteMovieEntity
 import com.binar.melif.databinding.ItemMovieFavBinding
+import com.borabor.movieapp.data.local.entity.FavoriteTvEntity
 
 
-class HistoryAdapter(private val itemClick: (FavoriteMovieEntity) -> Unit) :
-    RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder>() {
+class TvFavAdapter(private val itemClick: (FavoriteTvEntity) -> Unit) :
+    RecyclerView.Adapter<TvFavAdapter.HistoryViewHolder>() {
 
     var playersArrList: ArrayList<String>? = null
-    private var items: MutableList<FavoriteMovieEntity> = mutableListOf()
+    private var items: MutableList<FavoriteTvEntity> = mutableListOf()
 
-    fun setItems(items: List<FavoriteMovieEntity>) {
+    fun setItems(items: List<FavoriteTvEntity>) {
         this.items.clear()
         this.items.addAll(items)
         notifyDataSetChanged()
@@ -31,11 +32,11 @@ class HistoryAdapter(private val itemClick: (FavoriteMovieEntity) -> Unit) :
     override fun getItemCount(): Int = items.size
 
 
-    class HistoryViewHolder(private val binding: ItemMovieFavBinding, val itemClick: (FavoriteMovieEntity) -> Unit) :
+    class HistoryViewHolder(private val binding: ItemMovieFavBinding, val itemClick: (FavoriteTvEntity) -> Unit) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bindView(item: FavoriteMovieEntity) {
-            binding.tvIdMember.text = item.title
+        fun bindView(item: FavoriteTvEntity) {
+            binding.tvIdMember.text = item.name
 //            binding.tvNameMember.text = item.group_name_result
 
             with(item) {

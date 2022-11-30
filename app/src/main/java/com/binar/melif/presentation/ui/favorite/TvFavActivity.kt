@@ -4,13 +4,13 @@ import android.os.Bundle
 import androidx.core.view.isVisible
 import com.binar.melif.base.BaseViewModelActivity
 import com.binar.melif.base.wrapper.Resource
-import com.binar.melif.data.local.entity.FavoriteMovieEntity
 import com.binar.melif.databinding.ActivityFavBinding
-import com.binar.melif.presentation.adapter.MovieFavAdapter
+import com.binar.melif.presentation.adapter.TvFavAdapter
+import com.borabor.movieapp.data.local.entity.FavoriteTvEntity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
-class MovieFavActivity : BaseViewModelActivity<ActivityFavBinding, FavViewModel>(
+class TvFavActivity : BaseViewModelActivity<ActivityFavBinding, FavViewModel>(
     ActivityFavBinding::inflate){
 
     override val viewModel: FavViewModel by viewModel()
@@ -22,8 +22,8 @@ class MovieFavActivity : BaseViewModelActivity<ActivityFavBinding, FavViewModel>
 
 
 
-    private val adapter: MovieFavAdapter by lazy {
-        MovieFavAdapter {
+    private val adapter: TvFavAdapter by lazy {
+        TvFavAdapter {
 //            val intent = Intent(this@MovieFavActivity, HistoryDetailFormActivity::class.java)
 //            intent.putExtra("name_result", it.name_result.toString())
 //            startActivity(intent)
@@ -36,7 +36,7 @@ class MovieFavActivity : BaseViewModelActivity<ActivityFavBinding, FavViewModel>
 
     override fun onStart() {
         super.onStart()
-        viewModel.getAllMovieResult()
+        viewModel.getAllTvResult()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,14 +54,14 @@ class MovieFavActivity : BaseViewModelActivity<ActivityFavBinding, FavViewModel>
 
     private fun initData() {
 
-        viewModel.getAllMovieResult()
+        viewModel.getAllTvResult()
     }
 
 
 
      override fun observeData() {
          super.observeData()
-        viewModel.initialDataMovieResult.observe(this) {
+        viewModel.initialDataTvResult.observe(this) {
             when (it) {
                 is Resource.Empty -> {
 //                    showEmptyData()
@@ -94,7 +94,7 @@ class MovieFavActivity : BaseViewModelActivity<ActivityFavBinding, FavViewModel>
 
 
 
-    private fun showData(data: List<FavoriteMovieEntity>?) {
+    private fun showData(data: List<FavoriteTvEntity>?) {
 
         data?.let { listData ->
             binding.pbForm.isVisible = false
@@ -130,7 +130,7 @@ class MovieFavActivity : BaseViewModelActivity<ActivityFavBinding, FavViewModel>
     }
 
     private fun initRecyclerView() {
-        binding.rvNotes.adapter = this@MovieFavActivity.adapter
+        binding.rvNotes.adapter = this@TvFavActivity.adapter
     }
 
 

@@ -33,6 +33,7 @@ class ThreadFragment  :
 
     override fun initView() {
         super.initView()
+        activity?.title= "Thread"
         binding.fabAdd.setOnClickListener {
             openCreateThreadBottomSheet()
         }

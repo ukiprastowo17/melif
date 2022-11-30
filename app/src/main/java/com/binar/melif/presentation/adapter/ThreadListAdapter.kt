@@ -38,6 +38,7 @@ class ThreadListAdapter(
                 transformations(CircleCropTransformation())
             }
             binding.tvTitleThread.text = item.title
+            binding.tvDateThreadStarter.text = item.date
             binding.tvContentThread.text = item.content
             binding.tvNameThreadStarter.text = itemView.context.getString(
                 R.string.text_container_display_creator_thread,

@@ -20,7 +20,7 @@ class TvShowFragment :
     override val viewModel: TvShowViewModel by viewModel()
 
     private val adapter: TvShowAdapter by lazy {
-        TvShowAdapter()
+       TvShowAdapter()
     }
 
     override fun initView() {
