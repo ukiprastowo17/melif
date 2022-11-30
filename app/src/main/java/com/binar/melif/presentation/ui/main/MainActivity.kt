@@ -1,15 +1,9 @@
 package com.binar.melif.presentation.ui.main
 
 import android.content.Intent
-import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AlertDialog
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -26,6 +20,7 @@ class MainActivity : BaseViewModelActivity<ActivityMainBinding, MainViewModel>(A
     override val viewModel: MainViewModel by viewModel()
 
     override fun initView() {
+
         super.initView()
         setupNav()
     }

@@ -37,15 +37,58 @@
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:maxLines="1"
-        android:padding="16dp"
         android:textColor="@color/white"
         android:textSize="18sp"
         style="@style/TextDesc.Regular"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/tv_info"
+        app:layout_constraintBottom_toTopOf="@id/ly_data"
         tools:text="Genre"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
+
+
+
+    <LinearLayout
+        android:id="@+id/ly_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/tv_info"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/tv_rilis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:padding="5dp"
+            style="@style/TextDesc.Regular"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="Info"
+            android:textAlignment="center"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tv_info"
+            app:layout_constraintRight_toLeftOf="@id/tv_rating"/>
+
+        <TextView
+            android:id="@+id/tv_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:padding="5dp"
+            style="@style/TextDesc.Regular"
+            android:textSize="12sp"
+            android:text="Info"
+            android:textAlignment="center"
+            app:drawableStartCompat="@drawable/ic_star_detail" />
+
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/tv_info"
@@ -70,7 +113,8 @@
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/ic_baseline"
+        android:src="@drawable/ic_list_favorite"
+        android:tint="@color/color_master"
         android:layout_marginRight="16dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

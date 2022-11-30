@@ -3,12 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/menu_info"
-        android:icon="@drawable/information"
+        android:icon="@drawable/ic_info"
+        android:iconTint="@color/white_melif"
         android:title="@string/info_apps"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/menu_logout"
         android:icon="@drawable/ic_logout"
+        android:iconTint="@color/white_melif"
         android:title="@string/text_icon_menu_logout"
         app:showAsAction="ifRoom" />
 </menu>

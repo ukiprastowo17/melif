@@ -1,8 +1,11 @@
 package com.binar.melif.presentation.adapter;
 
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
+import com.binar.melif.BuildConfig
 import com.binar.melif.data.local.entity.FavoriteMovieEntity
 import com.binar.melif.databinding.ItemMovieFavBinding
 import com.borabor.movieapp.data.local.entity.FavoriteTvEntity
@@ -36,9 +39,16 @@ class TvFavAdapter(private val itemClick: (FavoriteTvEntity) -> Unit) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bindView(item: FavoriteTvEntity) {
-            binding.tvIdMember.text = item.name
-//            binding.tvNameMember.text = item.group_name_result
 
+
+
+
+
+
+            binding.tvIdMember.text = item.name
+            binding.tvRating.text = item.voteAverage.toString() + " (" + item.voteCount.toString() + ")"
+            binding.tvRilis.text = Html.fromHtml(item.firstAirDate )
+            binding.ivPoster.load(BuildConfig.BASE_POSTER_IMG_URL + item.posterPath)
             with(item) {
                 itemView.setOnClickListener { itemClick(this) }
             }

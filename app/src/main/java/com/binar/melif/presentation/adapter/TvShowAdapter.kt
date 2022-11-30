@@ -68,13 +68,16 @@ class HomeHeaderItemViewHolder( private val binding: ItemHeaderTvShowBinding) :
     fun bind(item: TvShowItem.TvShowHeaderItem) {
         binding.ivHeaderTvshow.load(BuildConfig.BASE_POSTER_IMG_URL + item.data?.posterPath)
         binding.tvTitleMovie.text = item.data?.name
-
-
         binding.ivListLike.setOnClickListener {
 
             val intent = Intent( itemView.context, TvFavActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             itemView.context.startActivity(intent)
+        }
+
+        binding.tvRating.text= item.data?.voteAverage.toString()
+        binding.tvRilis.text= item.data?.firstAirDate.toString()
+        binding.tvInfo.setOnClickListener {
+            DetailActivity.startActivity(itemView.context, item.data?.id.toString(), "TV")
         }
 
     }

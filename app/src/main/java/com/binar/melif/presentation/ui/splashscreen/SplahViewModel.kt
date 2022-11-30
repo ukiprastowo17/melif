@@ -1,4 +1,4 @@
-package com.binar.melif.presentation.ui.auth
+package com.binar.melif.presentation.ui.splashscreen
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -12,25 +12,18 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
-class AuthViewModel(
-    private val userRepository: UserRepository,
+class SplahViewModel(
     private val prefRepository: LocalRepository
 ) : ViewModel() {
 
-    val loginResult = MutableLiveData<Resource<Pair<Boolean, User?>>>()
-    val prefData =  MutableLiveData<Resource<Unit>>()
 
-    fun authenticateGoogleLogin(token: String) {
-        viewModelScope.launch(Dispatchers.IO) {
-            loginResult.postValue(Resource.Loading())
-            loginResult.postValue(userRepository.signInWithCredential(token))
-        }
-    }
+    val prefData =  MutableLiveData<Resource<Boolean>>()
 
-    fun setSkipIntro(data: Boolean) {
+
+    fun isSkipIntro() {
         viewModelScope.launch(Dispatchers.IO) {
             prefData.postValue(Resource.Loading())
-            prefData.postValue(prefRepository.setSkipIntro(data))
+            prefData.postValue(prefRepository.isSkipIntro())
         }
     }
 }

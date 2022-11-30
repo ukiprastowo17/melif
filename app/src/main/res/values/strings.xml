@@ -35,7 +35,7 @@
     <string name="text_error_empty_title">Please Input thread title !</string>
     <string name="text_error_empty_body">Please input thread body !</string>
     <string name="title_fragment_home">Home</string>
-    <string name="title_fragment_thread">Thread</string>
+    <string name="title_fragment_thread">Forum</string>
     <string name="text_container_display_creator_thread">Created by %s</string>
     <string name="text_empty_data_subthread">No one reply in this thread :(</string>
     <string name="text_overview_dummy">Queen Ramonda, Shuri, M’Baku, Okoye and the Dora Milaje fight to protect their nation from intervening world powers in the wake of King T’Challa’s death. As the Wakandans strive to embrace their next chapter, the heroes must band together with the help of War Dog Nakia and Everett Ross and forge a new path for the kingdom of Wakanda.</string>

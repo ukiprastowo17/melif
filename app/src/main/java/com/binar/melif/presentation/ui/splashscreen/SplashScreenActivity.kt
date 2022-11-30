@@ -5,17 +5,23 @@ import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.CountDownTimer
-import androidx.appcompat.app.AppCompatActivity
+import android.util.Log
+import com.binar.melif.base.BaseViewModelActivity
+import com.binar.melif.base.wrapper.Resource
+import com.binar.melif.data.repository.LocalRepository
 import com.binar.melif.databinding.ActivitySplashScreenBinding
+import com.binar.melif.presentation.ui.main.MainActivity
 import com.binar.melif.presentation.ui.slider.LandingPageActivity
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
-class SplashScreenActivity : AppCompatActivity() {
-    private val binding: ActivitySplashScreenBinding  by lazy {
-        ActivitySplashScreenBinding.inflate(layoutInflater)
-    }
+class SplashScreenActivity : BaseViewModelActivity<ActivitySplashScreenBinding, SplahViewModel>(
+    ActivitySplashScreenBinding::inflate
+) {
+
+    override val viewModel: SplahViewModel by viewModel()
+
     private var timer: CountDownTimer? = null
-
 
 
 
@@ -26,6 +32,7 @@ class SplashScreenActivity : AppCompatActivity() {
 
 
         setTimerSplashScreen()
+//        viewModel.isSkipIntro()
 
         try {
             val pInfo: PackageInfo = packageManager.getPackageInfo(packageName, 0)
@@ -39,6 +46,32 @@ class SplashScreenActivity : AppCompatActivity() {
 
     }
 
+
+
+        override fun observeData() {
+            super.observeData()
+            viewModel.prefData.observe(this) {
+                when (it) {
+                    is Resource.Empty -> {
+
+                    }
+                    is Resource.Error -> {
+
+                    }
+                    is Resource.Loading -> {
+
+                    }
+                    is Resource.Success -> {
+
+
+
+
+                    }
+                }
+            }
+        }
+
+
     override fun onDestroy() {
         super.onDestroy()
 
@@ -51,8 +84,9 @@ class SplashScreenActivity : AppCompatActivity() {
         timer = object : CountDownTimer(3000, 1000) {
             override fun onTick(millisUntilFinished: Long) {}
             override fun onFinish() {
-//                if ( ServiceLocator.providePreferenceDataSource(this@SplashScreenActivity).isSkipIntro()){
-//                    val intent = Intent(this@SplashScreenActivity, HomeActivity::class.java)
+//            Log.d("dataskip",viewModel.isSkipIntro().toString())
+//                if ( data ){
+//                    val intent = Intent(this@SplashScreenActivity, MainActivity::class.java)
 //                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
 //                    startActivity(intent)
 //                    finish()

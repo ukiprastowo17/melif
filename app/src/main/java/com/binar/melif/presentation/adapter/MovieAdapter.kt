@@ -67,9 +67,14 @@ class HomeHeaderMovieItemViewHolder(private val binding: ItemHeaderTvShowBinding
         binding.tvTitleMovie.text = item.data?.name
         binding.ivListLike.setOnClickListener {
             val intent = Intent( itemView.context, MovieFavActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             itemView.context.startActivity(intent)
         }
+        binding.tvRating.text= item.data?.voteAverage.toString()
+        binding.tvRilis.text= item.data?.releaseDate.toString()
+        binding.tvInfo.setOnClickListener {
+            DetailActivity.startActivity(itemView.context, item.data?.id.toString(), "MOVIE")
+        }
+
     }
 
 }

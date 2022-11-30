@@ -4,30 +4,22 @@ import com.binar.melif.base.BaseRepository
 import com.binar.melif.base.wrapper.Resource
 import com.binar.melif.data.local.entity.FavoriteMovieEntity
 import com.binar.melif.data.network.api.datasource.FavDataSource
+import com.binar.melif.data.pref.PreferenceDataSource
 
 
 interface LocalRepository {
-    suspend fun getAllMovieFav(): Resource<List<FavoriteMovieEntity>>
-    suspend fun insertMovieFav(movieFav: FavoriteMovieEntity): Resource<Number>
-
-
+    suspend fun isSkipIntro(): Resource<Boolean>
+    suspend fun setSkipIntro(isSkipIntro: Boolean) :  Resource<Unit>
 }
 
-class LocalRepositoryImpl(
-    private val movieFavDataSource: FavDataSource
-
-    ) : BaseRepository(), LocalRepository {
-    override suspend fun getAllMovieFav(): Resource<List<FavoriteMovieEntity>> {
-        return proceed { movieFavDataSource.getAllMovieFav() }
+class LocalRepositoryImpl(private val prefDataSource: PreferenceDataSource) : BaseRepository(), LocalRepository {
+    override suspend fun isSkipIntro(): Resource<Boolean> {
+           return proceed {  prefDataSource.isSkipIntro()}
     }
 
-
-    override suspend fun insertMovieFav(movieFav: FavoriteMovieEntity): Resource<Number> {
-        return proceed { movieFavDataSource.insertMovieFav(movieFav) }
+    override suspend fun setSkipIntro(isSkipIntro: Boolean): Resource<Unit> {
+        return proceed { prefDataSource.setSkipIntro(isSkipIntro)}
     }
-
-
-
 
 
 }

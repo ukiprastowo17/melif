@@ -13,5 +13,10 @@ data class MovieResultModel(
     @SerializedName("poster_path")
     val posterPath: String,
     @SerializedName("original_title")
-    val name: String
+    val name: String,
+    @SerializedName("release_date")
+val releaseDate: String,
+@SerializedName("vote_average")
+val voteAverage: Double,
+
 )

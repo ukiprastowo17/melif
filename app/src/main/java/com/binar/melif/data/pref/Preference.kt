@@ -2,6 +2,7 @@ package com.binar.melif.data.pref
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.util.Log
 import androidx.core.content.edit
 import com.binar.melif.constant.CommonConstant
 
@@ -17,15 +18,21 @@ class Preference(context: Context) {
 
 
     fun isSkipIntro(): Boolean {
+        Log.d("databalik", (preference.getBoolean(
+            PreferenceKey.PREF_IS_SKIP_INTRO.first,
+            PreferenceKey.PREF_IS_SKIP_INTRO.second,
+        ).toString()))
         return preference.getBoolean(
             PreferenceKey.PREF_IS_SKIP_INTRO.first,
-            PreferenceKey.PREF_IS_SKIP_INTRO.second
+            PreferenceKey.PREF_IS_SKIP_INTRO.second,
         )
     }
 
-    fun setSkipIntro(isSkipIntro: Boolean) {
+    fun setSkipIntro(isSkipIntro: Boolean)  {
+
         preference.edit {
             this.putBoolean(PreferenceKey.PREF_IS_SKIP_INTRO.first, isSkipIntro)
+            Log.d("datapref", isSkipIntro.toString())
         }
     }
 

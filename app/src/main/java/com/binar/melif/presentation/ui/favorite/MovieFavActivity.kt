@@ -42,6 +42,7 @@ class MovieFavActivity : BaseViewModelActivity<ActivityFavBinding, FavViewModel>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
+        title= "Favorite Movie"
         observeData()
         playersArrList = ArrayList()
         initRecyclerView()

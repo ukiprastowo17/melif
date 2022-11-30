@@ -39,8 +39,8 @@
             android:layout_below="@id/tv_id_member"
             android:layout_toRightOf="@id/iv_poster"
             android:drawablePadding="10dp"
-            app:drawableStartCompat="@drawable/ic_star_detail"
             android:textSize="16sp"
+            app:drawableStartCompat="@drawable/ic_star_detail"
             tools:text="-" />
 
         <TextView

@@ -26,6 +26,7 @@
         <entry key="app/src/main/res/drawable/ic_play.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_send_non_active.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_thread.xml" value="0.105" />
+        <entry key="app/src/main/res/drawable/nav_bottom.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_about.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_auth.xml" value="0.231722958529286" />
         <entry key="app/src/main/res/layout/activity_detail.xml" value="0.1" />

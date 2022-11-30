@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.text.Html
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
@@ -23,6 +24,7 @@ import com.binar.melif.data.network.api.model.TvShowDetail
 import com.binar.melif.databinding.ActivityDetailBinding
 import com.binar.melif.presentation.ui.favorite.MovieFavActivity
 import com.binar.melif.presentation.ui.slider.LandingPageActivity
+import com.binar.melif.presentation.ui.video.YoutubePlay
 import com.binar.melif.utils.Extensions
 import com.borabor.movieapp.data.local.entity.FavoriteTvEntity
 import com.google.android.material.appbar.AppBarLayout
@@ -83,6 +85,12 @@ class DetailActivity : BaseViewModelActivity<ActivityDetailBinding, DetailViewMo
                     collapseLayout.setExpandedTitleColor(Color.TRANSPARENT)
                 }
             })
+        }
+
+        binding.fabPlay.setOnClickListener {
+            val video = YoutubePlay(viewModel.videos.value!!.payload?.results!!.last().key)
+            video.show(supportFragmentManager, "Video")
+
         }
     }
 
@@ -209,7 +217,7 @@ class DetailActivity : BaseViewModelActivity<ActivityDetailBinding, DetailViewMo
 
         with(binding) {
 
-            val data = dataTvShow?.let { FavoriteTvEntity(id = it.id, posterPath = it.posterPath, firstAirDate=it.firstAirDate, episodeRunTime= 0, name = it.name, voteAverage= it.voteAverage , voteCount=0, date=0) }
+            val data = dataTvShow?.let { FavoriteTvEntity(id = it.id, posterPath = it.posterPath, firstAirDate=it.firstAirDate, episodeRunTime= 0, name = it.name, voteAverage= it.voteAverage , voteCount= it.voteCount, date=0) }
 
             binding.ivLike.setOnClickListener {
                 if (data != null) {
@@ -224,6 +232,7 @@ class DetailActivity : BaseViewModelActivity<ActivityDetailBinding, DetailViewMo
                 intent.type="text/plain"
                 startActivity(Intent.createChooser(intent,"Share To:"))
             }
+
 
             df.roundingMode = RoundingMode.CEILING
             ivHeaderDetail.load(BuildConfig.BASE_POSTER_IMG_URL + dataTvShow.backdropPath)
@@ -269,13 +278,15 @@ class DetailActivity : BaseViewModelActivity<ActivityDetailBinding, DetailViewMo
                 startActivity(Intent.createChooser(intent,"Share To:"))
             }
 
+            val hours: Int = dataMovie.runtime!! /  60
+            val minutes: Int = dataMovie.runtime!! %  60
 
 
             ivHeaderDetail.load(BuildConfig.BASE_POSTER_IMG_URL + dataMovie.backdropPath)
             imgPosterDetail.load(BuildConfig.BASE_POSTER_IMG_URL + dataMovie.posterPath)
             tvTitleDetail.text = dataMovie.originalTitle
-            tvRateDetail.text = dataMovie.voteAverage.toString()
-            tvReleaseDetail.text = dataMovie.releaseDate
+            tvRateDetail.text = dataMovie.voteAverage.toString() + "(" + df.format(dataMovie.voteCount) + ")"
+            tvReleaseDetail.text = Html.fromHtml(dataMovie.releaseDate + " &#x2022; " + hours + "hr  " + minutes + "min")
             tvDescDetail.text = dataMovie.overview
             collapseLayout.title = dataMovie.originalTitle
             tvGenreDetail.text = ""

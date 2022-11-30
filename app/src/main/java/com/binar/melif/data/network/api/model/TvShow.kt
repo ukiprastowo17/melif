@@ -15,5 +15,9 @@ data class TvShowResultModel(
     @SerializedName("name")
     val name: String,
     @SerializedName("original_title")
-    val titleName: String
+    val titleName: String,
+    @SerializedName("vote_average")
+val voteAverage: Double,
+    @SerializedName("first_air_date")
+    val firstAirDate: String,
 )

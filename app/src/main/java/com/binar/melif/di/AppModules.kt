@@ -5,6 +5,9 @@ import com.binar.melif.data.local.database.AppDatabase
 import com.binar.melif.data.firebase.*
 import com.binar.melif.data.network.api.datasource.*
 import com.binar.melif.data.network.api.service.MelifApiService
+import com.binar.melif.data.pref.Preference
+import com.binar.melif.data.pref.PreferenceDataSource
+import com.binar.melif.data.pref.PreferenceDataSourceImpl
 import com.binar.melif.data.repository.*
 import com.binar.melif.presentation.adapter.MovieAdapter
 import com.binar.melif.presentation.adapter.MovieFavAdapter
@@ -16,6 +19,7 @@ import com.binar.melif.presentation.ui.auth.AuthViewModel
 import com.binar.melif.presentation.ui.favorite.FavViewModel
 import com.binar.melif.presentation.ui.main.MainViewModel
 import com.binar.melif.presentation.ui.movie.MovieViewModel
+import com.binar.melif.presentation.ui.splashscreen.SplahViewModel
 import com.binar.melif.presentation.ui.thread.ThreadViewModel
 import com.binar.melif.presentation.ui.threaddetail.ThreadDetailViewModel
 import com.binar.melif.presentation.ui.threadform.ThreadFormViewModel
@@ -42,6 +46,7 @@ object AppModules {
     private val dblocal = module {
         single { AppDatabase.getInstance(get()).movieDao() }  // singleton
         single { AppDatabase.getInstance(get()).tvDao() }  // singleton
+        single { Preference(get())  }
     }
 
     private val networkModule = module {
@@ -57,6 +62,8 @@ object AppModules {
         single<MovieApiDataSource> { MovieDataSourceImpl(get()) } // singleton
         single<ChatDataSource> { FirebaseChatDataSource(get()) } // singleton
         single<FavDataSource> { FavDataSourceImpl(get(), get()) } // singleton
+        single<PreferenceDataSource> { PreferenceDataSourceImpl(get())}
+
     }
 
 
@@ -66,6 +73,7 @@ object AppModules {
         single<TvShowRepository> { TvShowRepositoryImpl(get()) } // singleton
         single<MovieRepository> { MovieRepositoryImpl(get()) } // singleton
         single<ChatRepository> { ChatRepositoryImpl(get()) } // singleton
+        single<LocalRepository> { LocalRepositoryImpl(get()) } // singleton
     }
 
 
@@ -77,6 +85,7 @@ object AppModules {
         viewModelOf(::ThreadViewModel)
         viewModelOf(::ThreadFormViewModel)
         viewModelOf(::FavViewModel)
+        viewModelOf(::SplahViewModel)
         viewModel { TvShowViewModel(get()) }
         viewModel { MovieViewModel(get()) }
         viewModel { params -> ThreadDetailViewModel(get(), get(), params.get()) }

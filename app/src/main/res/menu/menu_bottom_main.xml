@@ -9,12 +9,12 @@
 
     <item
         android:id="@+id/tvShowFragment"
-        android:icon="@drawable/ic_thread"
+        android:icon="@drawable/ic_television"
         android:title="TV Show"/>
 
     <item
         android:id="@+id/threadFragment"
-        android:icon="@drawable/ic_thread"
+        android:icon="@drawable/message"
         android:title="@string/title_fragment_thread"/>
 
 </menu>

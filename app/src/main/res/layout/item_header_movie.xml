@@ -42,8 +42,26 @@
         android:textSize="18sp"
         style="@style/TextDesc.Regular"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/tv_info"
+        app:layout_constraintBottom_toTopOf="@+id/tv_rating"
         tools:text="Genre"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:padding="5dp"
+        style="@style/TextDesc.Regular"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Info"
+        android:textAlignment="center"
+        app:drawableStartCompat="@drawable/ic_star_detail"
+        app:layout_constraintBottom_toTopOf="@+id/tv_info"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
 

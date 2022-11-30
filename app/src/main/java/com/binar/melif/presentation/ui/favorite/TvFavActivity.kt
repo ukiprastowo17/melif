@@ -41,7 +41,7 @@ class TvFavActivity : BaseViewModelActivity<ActivityFavBinding, FavViewModel>(
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        supportActionBar?.hide()
+        title= "Favorite Tv Show"
         observeData()
         playersArrList = ArrayList()
         initRecyclerView()

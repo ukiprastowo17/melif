@@ -2,6 +2,7 @@ package com.binar.melif.presentation.ui.slider
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.core.view.isGone
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
@@ -76,7 +77,7 @@ class LandingPageActivity : BaseViewModelActivity<ActivityLandingPageBinding , S
 
     private fun navigateToMenuFragment(){
         viewModel.getCurrentUser()
-//        ServiceLocator.providePreferenceDataSource(this@LandingPageActivity).setSkipIntro(true)
+
 //        val i = Intent(this@LandingPageActivity, AuthActivity::class.java)
 //        startActivity(i)
 //        finish()
@@ -152,6 +153,7 @@ class LandingPageActivity : BaseViewModelActivity<ActivityLandingPageBinding , S
 
     override fun observeData() {
         viewModel.currentUserLiveData.observe(this) { user ->
+            Log.d("useruki",user.toString())
             if (user == null) {
                 lifecycleScope.launch {
                     delay(1000)

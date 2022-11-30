@@ -8,10 +8,12 @@ import com.binar.melif.base.wrapper.Resource
 import com.binar.melif.data.repository.MovieRepository
 import com.binar.melif.presentation.adapter.MovieItem
 import kotlinx.coroutines.launch
+import java.util.logging.Handler
 
 class MovieViewModel(private val MovieRepository: MovieRepository) : ViewModel() {
 
     val movieResult = MutableLiveData<Resource<List<MovieItem>>>()
+
 
     fun getTvShow() {
         viewModelScope.launch {
@@ -23,7 +25,8 @@ class MovieViewModel(private val MovieRepository: MovieRepository) : ViewModel()
             val movieItems = mutableListOf<MovieItem>()
             movieItems.apply {
                 nowPlaying.payload?.results.let {
-                    add(MovieItem.MovieHeaderItem(it?.random()))
+                            add(MovieItem.MovieHeaderItem(it?.random()))
+
                 }
                 sectionPopularList.payload?.results.let {
                     add(MovieItem.MovieSectionItem(R.string.popular_movie_section, it))

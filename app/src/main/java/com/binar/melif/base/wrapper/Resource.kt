@@ -11,4 +11,5 @@ sealed class Resource<T>(
     class Empty<T>(data: T? = null) : Resource<T>(data)
     class Loading<T>(data: T? = null) : Resource<T>(data)
 
+
 }
