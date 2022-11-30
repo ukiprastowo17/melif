@@ -32,6 +32,7 @@ class ThreadDetailActivity :
     private val adapter: SubThreadListAdapter by lazy {
         SubThreadListAdapter(
             viewModel.getSubThread(),
+            viewModel.parentThread,
             viewModel.getCurrentUser(),
             onDataExist = {
                 showData()
@@ -88,7 +89,7 @@ class ThreadDetailActivity :
             OnReplyScrollObserver(
                 binding.rvDetailThread,
                 adapter,
-                manager
+                manager,
             )
         )
         binding.rvDetailThread.adapter = adapter

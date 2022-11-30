@@ -9,6 +9,7 @@ import coil.load
 import coil.transform.CircleCropTransformation
 import com.binar.melif.R
 import com.binar.melif.data.firebase.model.SubThreadItem
+import com.binar.melif.data.firebase.model.ThreadItem
 import com.binar.melif.data.firebase.model.User
 import com.binar.melif.databinding.ItemSubThreadBinding
 
@@ -19,6 +20,7 @@ import com.google.firebase.database.DatabaseError
 
 class SubThreadListAdapter(
     dataStream: FirebaseRecyclerOptions<SubThreadItem>,
+    private val data: ThreadItem?,
     private val currentUser: User?,
     private val onDataExist: () -> Unit,
     private val onLoading: (isLoading: Boolean) -> Unit,
@@ -33,7 +35,7 @@ class SubThreadListAdapter(
     class SubThreadItemViewHolder(private val binding: ItemSubThreadBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: SubThreadItem,currentUser: User?) {
+        fun bind(item: SubThreadItem,currentUser: User?, data : ThreadItem?) {
 
 
             binding.lyL.visibility = View.GONE
@@ -50,7 +52,7 @@ class SubThreadListAdapter(
                 binding.lyR.visibility = View.VISIBLE
                 binding.tvContentThreadR.text = item.content
                 binding.tvNameThreadStarterR.text = item.creator?.displayName
-                binding.tvTextOwnerR.isVisible = currentUser?.email == item.creator?.email
+                binding.tvTextOwnerR.isVisible = data?.creator?.displayName == item.creator?.displayName
 
             }else{
                 binding.ivProfilePict.load(item.creator?.photoProfileUrl){
@@ -64,7 +66,7 @@ class SubThreadListAdapter(
                 binding.tvContentThreadR.text = item.content
                 binding.tvContentThread.text = item.content
                 binding.tvNameThreadStarter.text = item.creator?.displayName
-                binding.tvTextOwner.isVisible = currentUser?.email == item.creator?.email
+                binding.tvTextOwner.isVisible = data?.creator?.displayName == item.creator?.displayName
             }
         }
 
@@ -83,7 +85,7 @@ class SubThreadListAdapter(
     }
 
     override fun onBindViewHolder(holder: SubThreadItemViewHolder, position: Int, model: SubThreadItem) {
-        holder.bind(model,currentUser)
+        holder.bind(model,currentUser, data)
     }
 
     override fun onDataChanged() {
